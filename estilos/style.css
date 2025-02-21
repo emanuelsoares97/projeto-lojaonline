@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+/* Reset a todo o site */
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+/* 🟢 Mobile First - Menu escondido por padrão */
+.navbar {
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Para espaçar os elementos */
+}
+
+/* Define o menu inicial escondido no mobile */
+.menu {
+    display: none; /* Esconde o menu */
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #333;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    list-style: none;
+}
+
+/* Estilos do menu quando ativado */
+.menu.active {
+    display: flex; /* Mostra o menu quando clicado */
+}
+
+/* Estilos dos links do menu */
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+/* Estiliza o ícone do menu hamburguer */
+.menu-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    color: black;
+}
+

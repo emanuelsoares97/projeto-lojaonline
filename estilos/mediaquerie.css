@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/* 🖥️ Estilos para telas maiores (mostrar menu normal) */
+@media (min-width: 768px) {
+    .menu {
+        width: 100%;
+        display: flex; /* Mostra o menu em telas grandes */
+        flex-direction: row;
+        position: static;
+        background-color: gray;
+        width: auto;
+    }
+
+    .menu a {
+        color: black;
+        padding: 0 15px;
+    }
+
+    .menu-icon {
+        display: none; /* Esconde o ícone do hamburguer */
+    }
+}
