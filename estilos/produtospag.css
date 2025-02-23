@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+/* Layout do container principal */
+.produtos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 10px;
+    align-items: stretch; /* Garante que todos os itens tenham a mesma altura */
+}
+
+/* Cada produto */
+.produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 48%;
+    max-width: 250px;
+    padding: 10px;
+    border: 1px solid rgb(182, 170, 170);
+    border-radius: 8px;
+    box-shadow: 0px 0px 2px rgb(92, 91, 91);
+    margin-bottom: 10px;
+    min-height: 250px; /* Mantém todos os produtos na mesma altura */
+}
+
+/* Imagens */
+.produto img {
+    width: 100%;
+    max-height: 130px; /* Ajusta altura sem distorcer */
+}
+
+/* Estilização do texto */
+.descricao {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0;
+    flex-grow: 1; /* Permite que o texto cresça uniformemente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Preços */
+.preco-antigo {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: gray;
+}
+
+.preco-novo {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}

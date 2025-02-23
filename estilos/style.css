@@ -19,7 +19,7 @@
     justify-content: space-between; /* Para espaçar os elementos */
 }
 
-/* Define o menu inicial escondido no mobile */
+/* Define o menu inicial escondido no telemovel */
 .menu {
     display: none; /* Esconde o menu */
     flex-direction: column;
