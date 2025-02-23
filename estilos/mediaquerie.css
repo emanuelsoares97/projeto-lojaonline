@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-/* 🖥️ Estilos para telas maiores (mostrar menu normal) */
 @media (min-width: 768px) {
     .menu {
         width: 100%;

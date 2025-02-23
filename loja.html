@@ -9,17 +9,24 @@
 </head>
 <body>
 
-    <h1>Nossas Lojas</h1>
-    <nav>
+
+    <nav class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="material-icons">menu</i> <!--Icon 3 barras para o menu telemovel-->
+        </div>
         <ul class="menu">
-            <li><a href="index.html"><i class="material-icons"> home</i></a></li>
+            <li class="home"><a href="index.html"><i class="material-icons">home</i></a></li>
             <li><a href="produtos.html">Produtos</a></li>
             <li><a href="loja.html">Lojas</a></li>
             <li><a href="contacto.html">Contatos</a></li>
         </ul>
     </nav>
+    
+    <h1>Nossas Lojas</h1>
     <hr>
     <h4>Formas de pagamento</h4>
     <img src="./imagens/formas-pagamento.png" alt="Imagem com as diferentes formas de pagamento">
+
+    <script src="utils/script.js"></script>
 </body>
 </html>

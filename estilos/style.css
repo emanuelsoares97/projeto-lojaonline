@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-/* 🟢 Mobile First - Menu escondido por padrão */
+/* Mobile First - Menu escondido por padrão */
 .navbar {
     width: 100%;
     background-color: #f8f8f8;
@@ -35,7 +35,8 @@
 
 /* Estilos do menu quando ativado */
 .menu.active {
-    display: flex; /* Mostra o menu quando clicado */
+    display: flex; 
+
 }
 
 /* Estilos dos links do menu */
@@ -53,5 +54,5 @@
     cursor: pointer;
     font-size: 24px;
     color: black;
+    margin-left: auto;
 }
-
