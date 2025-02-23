@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.contactos-loja{
+    margin: 20px;
+}
+
+.contactos-loja > fieldset{
+    padding: 0px 5px;
+}
+
+.contactos-loja > fieldset > p {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.formulario {
+    margin: 20px;
+}
+
+
+.formulario > form > div.campo {
+    display: flex;
+    align-items: center; /* Alinha verticalmente os itens */
+    margin-bottom: 10px; /* Espaçamento entre os campos */
+}
+
+.formulario > form > div.campo > label {
+    width: 20%; /* Largura fixa para todos os rótulos */
+    min-width: 70px; /* Largura mínima */
+    margin-right: 15px; /* Espaçamento entre o rótulo e o campo de entrada */
+}
+
+.formulario > form > div.campo > input,
+.formulario > form > div.campo > textarea {
+    flex-grow: 1; /* Ocupa o espaço restante */
+}

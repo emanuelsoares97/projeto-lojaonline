@@ -11,55 +11,83 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="menu-icon" onclick="toggleMenu()">
-            <i class="material-icons">menu</i> <!--Icon 3 barras para o menu telemovel-->
-        </div>
-        <ul class="menu">
-            <li class="home"><a href="index.html"><i class="material-icons">home</i></a></li>
-            <li><a href="produtos.html">Produtos</a></li>
-            <li><a href="loja.html">Lojas</a></li>
-            <li><a href="contacto.html">Contatos</a></li>
-        </ul>
-    </nav>
-    <h1>Produtos</h1>
-    <hr>
+    <header>
+        <!-- Menu-->
+        <nav class="navbar">
+            <div>
+                <a href="index.html"><i class="material-icons" id="home-icon">home</i></a>
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="material-icons">menu</i> <!--Icon 3 barras para o menu telemovel-->
+            </div>
+            <ul class="menu">
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="loja.html">Lojas</a></li>
+                <li><a href="contacto.html">Contatos</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section class="produtos">
-        <div class="produto">
-            <img src="./imagens/airpod1.webp" alt="AirPod">
-            <p class="descricao"> AirPod Ultra Fire</p>
-            <p class="preco-antigo">200€</p>
-            <p class="preco-novo"> 150€</p>
+    <main>
+        <h1>Produtos</h1>
+        <hr>
+        <section class="produtos">
+            <div class="produto">
+                <img src="./imagens/airpods/airpod1.webp" alt="AirPod">
+                <p class="descricao"> AirPod Ultra Fire</p>
+                <p class="preco-antigo">200€</p>
+                <p class="preco-novo"> 150€</p>
+            </div>
+            <div class="produto">
+                <img src="./imagens/airpods/airpod2.webp" alt="AirPod">
+                <p class="descricao"> AirPod Ultra Water</p>
+                <p class="preco-antigo">200€</p>
+                <p class="preco-novo"> 150€</p>
+            </div>
+            <div class="produto">
+                <img src="./imagens/airpods/airpod3.webp" alt="AirPod">
+                <p class="descricao"> AirPod Ultra Air</p>
+                <p class="preco-antigo">200€</p>
+                <p class="preco-novo"> 150€</p>
+            </div>
+            <div class="produto">
+                <img src="./imagens/airpods/airpod4.webp" alt="AirPod">
+                <p class="descricao"> AirPod Spider</p>
+                <p class="preco-antigo">200€</p>
+                <p class="preco-novo"> 150€</p>
+            </div>
+            <div class="produto">
+                <img src="./imagens/iphones/iphonedourado.webp" alt="AirPod">
+                <p class="descricao"> Iphone Dourado</p>
+                <p class="preco-antigo">200€</p>
+                <p class="preco-novo"> 150€</p>
+            </div>
+            <div class="produto">
+                <img src="./imagens/iphones/iphonepreto.webp" alt="AirPod">
+                <p class="descricao"> Iphone Preto</p>
+                <p class="preco-antigo">200€</p>
+                <p class="preco-novo"> 150€</p>
+            </div>
+            <div class="produto">
+                <img src="./imagens/iphones/iphonevermelho.webp" alt="AirPod">
+                <p class="descricao"> Iphone Vermelho</p>
+                <p class="preco-antigo">200€</p>
+                <p class="preco-novo"> 150€</p>
+            </div>
+            <div class="produto">
+                <img src="./imagens/iphones/iphoneazul.webp" alt="AirPod">
+                <p class="descricao"> Iphone Azul</p>
+                <p class="preco-antigo">200€</p>
+                <p class="preco-novo"> 150€</p>
+            </div>
+        </section>
+    </main>
 
-        </div>
-        <div class="produto">
-            <img src="./imagens/airpod2.webp" alt="AirPod">
-            <p class="descricao"> AirPod Ultra Water</p>
-            <p class="preco-antigo">200€</p>
-            <p class="preco-novo"> 150€</p>
 
-        </div>
-        <div class="produto">
-            <img src="./imagens/airpod3.webp" alt="AirPod">
-            <p class="descricao"> AirPod Ultra Air</p>
-            <p class="preco-antigo">200€</p>
-            <p class="preco-novo"> 150€</p>
-
-        </div>
-        <div class="produto">
-            <img src="./imagens/airpod4.webp" alt="AirPod">
-            <p class="descricao"> AirPod Spider</p>
-            <p class="preco-antigo">200€</p>
-            <p class="preco-novo"> 150€</p>
-
-        </div>
-
-    </section>
-
-
-    <h4>Formas de pagamento</h4>
-    <img src="./imagens/formas-pagamento.png" alt="Imagem com as diferentes formas de pagamento">
+    <footer>
+        <h4>Formas de pagamento</h4>
+        <img src="./imagens/formas-pagamento.png" alt="Imagem com as diferentes formas de pagamento">
+    </footer>
 
     <script src="utils/script.js"></script>
 </body>
