@@ -120,7 +120,7 @@ main h1 {
 
 .footer-container {
     padding: 20px;
-    text-align: justify;  
+    text-align: left;  
     display: flex;
     flex-direction: column;
 }
@@ -175,6 +175,9 @@ main h1 {
 .footer-bottom {
     text-align: center;
     margin-top: 20px;
+    background-color: #233140;
+    padding: 10px 0;
+    color: #bdc3c7;
 }
 
 .footer-bottom p {

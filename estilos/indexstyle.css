@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo do Slider */
+.slider {
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.slider img {
+    width: 100%;
+    display: block;
+}
+
+/* Produtos Destacados */
+.produtos-destacados {
+    padding: 20px;
+    background-color: #f7f7f7;
+}
+
+.produtos-destacados h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.produto {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.produto img {
+    width: 80%; /* Ajuste conforme necessário */
+    height: auto;
+}
+
+.produto h3 {
+    margin: 5px 0;
+}
+
+/* Sobre Nós */
+.sobre-nos {
+    background-color: #eaeaea;
+    padding: 20px;
+    text-align: center;
+}
+
+.sobre-nos h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Testemunhos */
+.testemunhos {
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.testemunhos h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.testemunhos blockquote {
+    font-style: italic;
+    color: #666;
+}
+
+/* Chamada para Ação */
+.chamada-acao {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.chamada-acao h2 {
+    margin-bottom: 15px;
+}
+
+.chamada-acao a {
+    padding: 10px 20px;
+    background-color: #2980b9;
+    border-radius: 5px;
+    color: white;
+}
+
+.chamada-acao a:hover {
+    background-color: #1b6391;
+}
+
+
+
