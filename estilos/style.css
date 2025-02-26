@@ -12,12 +12,26 @@ body {
     padding-top: 60px; /* Deve ser igual ou maior que a altura da navbar para evitar sobreposição */
 }
 
+main {
+    margin: 5px 10px;
+
+}
+
+main h1 {
+    text-align: center;
+    background-color: #d5d4d4;
+    font-size: 50px;
+    border-radius: 8px;
+}
+
+
 /* Mobile First - Menu escondido por padrão */
 .navbar {
     width: 100%;
-    background-color: rgb(248, 247, 247);
+    background-color: rgb(210, 210, 210);
     padding: 10px 20px;
     margin-bottom: 10px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between; /* Para espaçar os elementos */
@@ -31,6 +45,25 @@ body {
 
 }
 
+.home-login-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;  /* Espaço entre os ícones da casa e do login */
+}
+
+.login-link {
+    display: flex;
+    align-items: center;
+    color: #000000; /* Ou qualquer cor que se encaixe no seu design */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-size: 16px; /* Ajuste conforme necessário */
+}
+
+.login-link .material-icons {
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+
 #home-icon{
     color: black;
 }
@@ -43,7 +76,7 @@ body {
     position: absolute;
     top: 50px;
     right: 0;
-    background-color: #333;
+    background-color: #a0a0a0;
     width: 200px;
     padding: 10px;
     border-radius: 5px;
@@ -74,12 +107,77 @@ body {
     margin-left: auto;
 }
 
-main {
-    margin: 5px 10px;
+/*estilos footer*/
+
+.site-footer {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 20px 0;
+    font-size: 14px;
+ 
 
 }
 
-main h1 {
+.footer-container {
+    padding: 20px;
+    text-align: justify;  
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section{
+    margin-bottom: 10px;
+}
+
+.footer-section h3 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-section form {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-section form input[type="email"] {
+    padding: 8px;
+    width: 200px;
+}
+
+.footer-section form button {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.footer-section .social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-section .social-icons img {
+    width: 24px; /* Adjust size accordingly */
+    height: auto;
+}
+
+.footer-bottom {
     text-align: center;
+    margin-top: 20px;
 }
 
+.footer-bottom p {
+    margin: 0;
+    color: #bdc3c7;
+}

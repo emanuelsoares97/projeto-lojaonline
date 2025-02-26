@@ -1,13 +1,21 @@
 @charset "UTF-8";
 
 /* Layout do container principal */
+
+
+
 .produtos {
     display: flex;
+    flex: 1 1 200px;
     justify-content: center;
     flex-wrap: wrap;
     padding: 20px;
-    gap: 10px;
-    align-items: stretch; /* Garante que todos os itens tenham a mesma altura */
+    gap: 20px;
+    align-items: start; /* Garante que todos os itens tenham a mesma altura */
+    background-color: #d5d4d4;
+    border-radius: 8px;
+    width: 100%;
+    
 }
 
 /* Cada produto */
@@ -17,13 +25,14 @@
     justify-content: space-between;
     align-items: center;
     width: 48%;
-    max-width: 250px;
+    max-width: 200px;
     padding: 10px;
     border: 1px solid rgb(182, 170, 170);
     border-radius: 8px;
     box-shadow: 0px 0px 2px rgb(92, 91, 91);
     margin-bottom: 10px;
     min-height: 250px; /* Mantém todos os produtos na mesma altura */
+    background-color: white;
     
 }
 
@@ -46,21 +55,38 @@
     text-align: center;
 }
 
+
 /* Preços */
 .preco-antigo {
     font-size: 14px;
     text-decoration: line-through;
     color: gray;
+    text-align: center;
+    margin: 5px 0px;
 }
 
 .preco-novo {
     font-size: 18px;
     font-weight: bold;
     color: red;
+    text-align: center;
+
 }
 
 div.categorias{
     text-align: center;
+    background-color: rgb(210, 210, 210);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    padding-bottom: 5px;
+}
+
+/* titulo categorias ocultado*/
+div.categorias h2.titulo-categorias {
+    display: none;
+    margin: 10px 0px;  
 }
 
 div.categorias ul li {
@@ -73,14 +99,16 @@ div.categorias ul li {
     list-style: none;
     display: inline-block;
     text-align: center;
-    background-color: gray;
     border-radius: 8px;
 }
 
 div.categorias ul li:hover{
-    background-color: rgb(73, 71, 71);
+    background-color: rgb(148, 146, 146);
     color: white;
 }
+
+
+
 
 .scaled {
     transform: scale(1.3);

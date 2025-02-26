@@ -6,16 +6,19 @@
     <title>Produtos</title>
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/produtospag.css">
+    <link rel="stylesheet" href="estilos/mediaquerie.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
+
 <body>
 
     <header>
         <!-- Menu-->
         <nav class="navbar">
-            <div>
+            <div class="home-login-icons">
                 <a href="index.html"><i class="material-icons" id="home-icon">home</i></a>
+                <a href="#" class="login-link"><i class="material-icons">login</i>Login</a> <!-- Link para a página de login -->
             </div>
             <div class="menu-icon" onclick="toggleMenu()">
                 <i class="material-icons">menu</i> <!--Icon 3 barras para o menu telemovel-->
@@ -27,100 +30,136 @@
             </ul>
         </nav>
     </header>
+    
 
     <main>
         <h1>Produtos</h1>
         <hr>
-
-        <div class="categorias">
-            <ul>
-                <li onclick="exibir_categoria('AirPod')">Air Pods</li>
-                <li onclick="exibir_categoria('Iphone')">Iphone</li>
-                <li onclick="exibir_categoria('AppleWatch')">Apple Watch</li>
-            </ul>
+        <div class="container">
+            
+            <div class="categorias">
+                <h2 class="titulo-categorias">Categorias</h2>
+                <ul>
+                    <li onclick="exibir_categoria('AirPod')">Air Pods</li>
+                    <li onclick="exibir_categoria('Iphone')">Iphone</li>
+                    <li onclick="exibir_categoria('AppleWatch')">Apple Watch</li>
+                </ul>
+            </div>
+            <section class="produtos" id="produtos">
+                <div class="produto" id="AirPod">
+                    <img src="./imagens/airpods/airpod1.webp" alt="AirPod Ultra Fire">
+                    <p class="descricao"> AirPod Ultra Fire</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+                <div class="produto" id="AirPod">
+                    <img src="./imagens/airpods/airpod2.webp" alt="AirPod Ultra Water">
+                    <p class="descricao"> AirPod Ultra Water</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+                <div class="produto" id="AirPod">
+                    <img src="./imagens/airpods/airpod3.webp" alt="AirPod Ultra Air">
+                    <p class="descricao"> AirPod Ultra Air</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+                <div class="produto">
+                    <img src="./imagens/airpods/airpod4.webp" alt="AirPod" id="AirPod Spider">
+                    <p class="descricao"> AirPod Spider</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+                <div class="produto" id="Iphone">
+                    <img src="./imagens/iphones/iphonedourado.webp" alt="Iphone Dourado">
+                    <p class="descricao"> Iphone Dourado</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+                <div class="produto" id="Iphone">
+                    <img src="./imagens/iphones/iphonepreto.webp" alt="Iphone Preto">
+                    <p class="descricao"> Iphone Preto</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+                <div class="produto" id="Iphone">
+                    <img src="./imagens/iphones/iphonevermelho.webp" alt="Iphone Vermelho">
+                    <p class="descricao"> Iphone Vermelho</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+                <div class="produto" id="Iphone">
+                    <img src="./imagens/iphones/iphoneazul.webp" alt="Iphone Azul">
+                    <p class="descricao"> Iphone Azul</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+                <div class="produto" id="AppleWatch">
+                    <img src="./imagens/watch/watchverde.webp" alt="Apple Watch Verde">
+                    <p class="descricao"> Apple Watch Verde</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+                <div class="produto" id="AppleWatch">
+                    <img src="./imagens/watch/watchvermelho.webp" alt="Apple Watch Vermelho">
+                    <p class="descricao"> Apple Watch Vermelho</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+                <div class="produto" id="AppleWatch">
+                    <img src="./imagens/watch/watchpreto.webp" alt="Apple Watch Azul">
+                    <p class="descricao"> Apple Watch Azul</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+                <div class="produto" id="AppleWatch">
+                    <img src="./imagens/watch/watchazul.webp" alt="Apple Watch Azul">
+                    <p class="descricao"> Apple Watch Azul</p>
+                    <p class="preco-antigo">200€</p>
+                    <p class="preco-novo"> 150€</p>
+                </div>
+            </section>
+                </main>
         </div>
 
-        <section class="produtos" id="produtos">
-            <div class="produto" id="AirPod">
-                <img src="./imagens/airpods/airpod1.webp" alt="AirPod Ultra Fire">
-                <p class="descricao"> AirPod Ultra Fire</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-            <div class="produto" id="AirPod">
-                <img src="./imagens/airpods/airpod2.webp" alt="AirPod Ultra Water">
-                <p class="descricao"> AirPod Ultra Water</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-            <div class="produto" id="AirPod">
-                <img src="./imagens/airpods/airpod3.webp" alt="AirPod Ultra Air">
-                <p class="descricao"> AirPod Ultra Air</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-            <div class="produto">
-                <img src="./imagens/airpods/airpod4.webp" alt="AirPod" id="AirPod Spider">
-                <p class="descricao"> AirPod Spider</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-            <div class="produto" id="Iphone">
-                <img src="./imagens/iphones/iphonedourado.webp" alt="Iphone Dourado">
-                <p class="descricao"> Iphone Dourado</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-            <div class="produto" id="Iphone">
-                <img src="./imagens/iphones/iphonepreto.webp" alt="Iphone Preto">
-                <p class="descricao"> Iphone Preto</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-            <div class="produto" id="Iphone">
-                <img src="./imagens/iphones/iphonevermelho.webp" alt="Iphone Vermelho">
-                <p class="descricao"> Iphone Vermelho</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-            <div class="produto" id="Iphone">
-                <img src="./imagens/iphones/iphoneazul.webp" alt="Iphone Azul">
-                <p class="descricao"> Iphone Azul</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-            <div class="produto" id="AppleWatch">
-                <img src="./imagens/watch/watchverde.webp" alt="Apple Watch Verde">
-                <p class="descricao"> Apple Watch Verde</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-            <div class="produto" id="AppleWatch">
-                <img src="./imagens/watch/watchvermelho.webp" alt="Apple Watch Vermelho">
-                <p class="descricao"> Apple Watch Vermelho</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-            <div class="produto" id="AppleWatch">
-                <img src="./imagens/watch/watchpreto.webp" alt="Apple Watch Azul">
-                <p class="descricao"> Apple Watch Azul</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-            <div class="produto" id="AppleWatch">
-                <img src="./imagens/watch/watchazul.webp" alt="Apple Watch Azul">
-                <p class="descricao"> Apple Watch Azul</p>
-                <p class="preco-antigo">200€</p>
-                <p class="preco-novo"> 150€</p>
-            </div>
-        </section>
-    </main>
 
-
-    <footer>
-        <h4>Formas de pagamento</h4>
-        <img src="./imagens/formas-pagamento.png" alt="Imagem com as diferentes formas de pagamento">
-    </footer>
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Telefone: +351 123 456 789</p>
+                    <p>Email: info@seudominio.com</p>
+                    <p>Endereço: Rua Exemplo, 123, Lisboa</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="/sobre">Sobre Nós</a></li>
+                        <li><a href="/privacidade">Política de Privacidade</a></li>
+                        <li><a href="/termos">Termos de Serviço</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <form action="subscribe.php" method="post">
+                        <input type="email" name="email" placeholder="Digite seu email" required>
+                        <button type="submit">Inscrever-se</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h3>Siga-nos</h3>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank"><img src="icons/facebook.png" alt="Facebook"></a>
+                        <a href="https://instagram.com" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
+                        <a href="https://twitter.com" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Seu Nome da Empresa. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+        
 
     <script src="utils/script.js"></script>
 </body>
