@@ -12,7 +12,6 @@
     padding: 20px;
     gap: 20px;
     align-items: start; /* Garante que todos os itens tenham a mesma altura */
-    background-color: #d5d4d4;
     border-radius: 8px;
     width: 100%;
     
@@ -33,6 +32,7 @@
     margin-bottom: 10px;
     min-height: 250px; /* Mantém todos os produtos na mesma altura */
     background-color: white;
+    box-shadow: 0px 0px 5px black;
     
 }
 
@@ -75,7 +75,6 @@
 
 div.categorias{
     text-align: center;
-    background-color: rgb(210, 210, 210);
     display: flex;
     justify-content: center;
     align-items: center;

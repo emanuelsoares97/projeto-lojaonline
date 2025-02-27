@@ -1,27 +1,47 @@
 @charset "UTF-8";
 
+/* estilos carrosel*/
 
-
-a {
-    color: #3498db;
-    text-decoration: none;
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden; /* Oculta as imagens que saem da área do carrossel */
 }
 
-a:hover {
-    text-decoration: underline;
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%; /* Mantém todas as imagens dentro da área visível */
+    position: relative; /* Evita que os botões sumam */
 }
 
-/* Estilo do Slider */
-.slider {
+
+.carousel-item {
     width: 100%;
-    overflow: hidden;
-    margin: 20px 0;
+    flex-shrink: 0;
 }
 
-.slider img {
-    width: 100%;
-    display: block;
+button#prev, button#next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    z-index: 10;
 }
+
+#prev { left: 10px; }
+#next { right: 10px; }
+
+
 
 /* Produtos Destacados */
 .produtos-destacados {
