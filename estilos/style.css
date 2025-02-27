@@ -9,7 +9,7 @@
 }
 
 body {
-    padding-top: 60px; /* Deve ser igual ou maior que a altura da navbar para evitar sobreposição */
+    padding-top: 40px; 
 }
 
 main {
@@ -20,7 +20,7 @@ main {
 main h1 {
     text-align: center;
     background-color: #d5d4d4;
-    font-size: 50px;
+    font-size: 30px;
     border-radius: 8px;
 }
 
@@ -107,6 +107,52 @@ main h1 {
     margin-left: auto;
 }
 
+h2 {
+    text-align: center;
+}
+/* estilos carrosel*/
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden; /* Oculta as imagens que saem da área do carrossel */
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%; /* Mantém todas as imagens dentro da área visível */
+    position: relative; /* Evita que os botões sumam */
+}
+
+
+.carousel-item {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+button#prev, button#next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    z-index: 10;
+}
+
+#prev { left: 10px; }
+#next { right: 10px; }
+
+
+
 /*estilos footer*/
 
 .site-footer {
@@ -154,7 +200,7 @@ main h1 {
     width: 200px;
 }
 
-.footer-section form button {
+.footer-section form button#botao-inscrever {
     padding: 8px 16px;
     background-color: #3498db;
     color: white;
