@@ -48,7 +48,7 @@ button#prev, button#next {
 /* Produtos Destacados */
 .produtos-destacados {
     padding: 20px;
-    background-color: #f7f7f7;
+    text-align: center;
 }
 
 .produtos-destacados h2 {
@@ -68,6 +68,22 @@ button#prev, button#next {
 
 .produto h3 {
     margin: 5px 0;
+}
+
+.produtos-destacados h3{
+    margin-top: 10px;
+}
+
+
+.produtos-destacados h3 a.verprodutos{
+    text-align: center;
+    text-decoration: none;
+    color: rgb(190, 187, 187);
+
+}
+
+.produtos-destacados h3 a.verprodutos:hover{
+    color: rgb(100, 99, 99);
 }
 
 /* Sobre Nós */

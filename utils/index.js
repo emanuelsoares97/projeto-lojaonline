@@ -1,12 +1,5 @@
 //funçao para o carrosel
 
-console.log(document.querySelector(".carousel-container")); // Deve mostrar o container
-console.log(document.querySelectorAll(".carousel-item")); // Deve mostrar as imagens
-console.log(document.getElementById("prev")); // Deve mostrar o botão "❮"
-console.log(document.getElementById("next")); // Deve mostrar o botão "❯"
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JS carregado!");
 
@@ -21,14 +14,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let index = 0;
+    let interval;
 
     function showSlide(i) {
         index = (i + items.length) % items.length;
         container.style.transform = `translateX(-${index * 100}%)`;
     }
 
-    prev.addEventListener("click", () => showSlide(index - 1));
-    next.addEventListener("click", () => showSlide(index + 1));
+    prev.addEventListener("click", () => {
+        showSlide(index - 1);
+        resetInterval();
+    });
+
+    next.addEventListener("click", () => {
+        showSlide(index + 1);
+        resetInterval();
+    });
+
+    function startInterval() {
+        interval = setInterval(() => {
+            showSlide(index + 1);
+        }, 4000); // Muda a imagem a cada 8000 milissegundos (8 segundos)
+    }
+
+    function resetInterval() {
+        clearInterval(interval);
+        startInterval();
+    }
+
+    startInterval(); // Inicia o intervalo quando o documento é carregado
 
     console.log("Carrossel carregado com sucesso!");
 });
