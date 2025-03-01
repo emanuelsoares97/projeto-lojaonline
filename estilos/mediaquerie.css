@@ -92,7 +92,7 @@
         display: flex;
         flex-flow: row nowrap;
         position: static;
-        width: 400px; /* Mantém 'auto' ou '100%' conforme necessário */
+        width: 400px;
         justify-content: space-around;
         
     }
