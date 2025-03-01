@@ -1,12 +1,13 @@
-<!DOCTYPE html>
 <html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossas Lojas</title>
+    <title>Carrinho - Loja Online</title>
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/mediaquerie.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-oSiFOCaqEjaBdJG0IuNUSK2TlWeVuIrvvAmvLV3F2ylpb3QG2NQLYQ2I7YvUHgeE" crossorigin="anonymous">
 </head>
 <body>
     <header>
@@ -25,14 +26,21 @@
                 <li><a href="contacto.html">Contatos</a></li>
             </ul>
         </nav>
+        
     </header>
-    
+
     <main>
-        <h1>Nossas Lojas</h1>
-        <hr>
+        <h1>Meu Carrinho</h1>
+        <button id="logout">Sair</button>
+        
+            <div class="carrinho-container">
+        <ul id="listaCarrinho"></ul>
+        <p>Total: <span id="total"></span>€</p>
+        <button id="finalizarCompra">Finalizar Compra</button>
+            </div>
     </main>
 
-
-    <script src="scripts/script.js"></script>
+    <script src="scripts/carrinho.js"></script>
+    <script src="scripts/auth.js"></script>
 </body>
 </html>

@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilizar o main */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    
+}
+
+/* Container do login */
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 350px;
+    border: 1px solid black;
+    box-shadow: 0px 0px 5px black;
+}
+
+/* Ajustar a imagem no topo */
+.imglogin img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 30%;
+}
+
+/* Inputs e botão */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #49a09d;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3a807d;
+}
