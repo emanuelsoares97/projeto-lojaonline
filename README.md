@@ -12,7 +12,7 @@ Este é um projeto de uma loja online desenvolvida com **HTML, CSS e JavaScript*
 
 ## Tecnologias Utilizadas
 - **HTML5**
-- **CSS3** (Flexbox, Media Queries, Bootstrap)
+- **CSS3** (Flexbox, Media Queries)
 - **JavaScript (DOM, LocalStorage)**
 
 ## Como Executar o Projeto
