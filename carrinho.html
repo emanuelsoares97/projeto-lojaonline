@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/mediaquerie.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/carrinho.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-oSiFOCaqEjaBdJG0IuNUSK2TlWeVuIrvvAmvLV3F2ylpb3QG2NQLYQ2I7YvUHgeE" crossorigin="anonymous">
 </head>
 <body>
     <header>
@@ -15,32 +15,37 @@
         <nav class="navbar">
             <div class="home-login-icons">
                 <a href="index.html"><i class="material-icons" id="home-icon">home</i></a>
-                <a href="#" class="login-link"><i class="material-icons">login</i>Login</a> <!-- Link para a página de login -->
+                <a href="login.html" class="login-link" id="loginBtn"><i class="material-icons">login</i>Login</a> 
             </div>
             <div class="menu-icon" onclick="toggleMenu()">
-                <i class="material-icons">menu</i> <!--Icon 3 barras para o menu telemovel-->
+                <i class="material-icons">menu</i> 
             </div>
             <ul class="menu">
                 <li><a href="produtos.html">Produtos</a></li>
-                <li><a href="loja.html">Lojas</a></li>
+                <li><a href="carrinho.html">Carrinho</a></li>
                 <li><a href="contacto.html">Contatos</a></li>
             </ul>
         </nav>
-        
     </header>
 
     <main>
         <h1>Meu Carrinho</h1>
-        <button id="logout">Sair</button>
         
-            <div class="carrinho-container">
-        <ul id="listaCarrinho"></ul>
-        <p>Total: <span id="total"></span>€</p>
-        <button id="finalizarCompra">Finalizar Compra</button>
-            </div>
+        <div class="carrinho-container">
+            <h2>Itens no Carrinho:</h2>
+            <ul id="listaCarrinho"></ul>
+            <p><strong>Total:</strong> <span id="total">0</span>€</p>
+            <button id="finalizarCompra">Finalizar Compra</button>
+        </div>
     </main>
+    
+    
 
     <script src="scripts/carrinho.js"></script>
-    <script src="scripts/auth.js"></script>
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/produtos.js" defer></script>
+    <script src="scripts/auth.js" defer></script>
+    <script src="scripts/index.js" defer></script>
+    <script src="scripts/authindex.js" defer></script>
 </body>
 </html>

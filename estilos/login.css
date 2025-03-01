@@ -33,12 +33,15 @@ main {
 
 /* Ajustar a imagem no topo */
 .imglogin img {
-    width: 80px;
+    width: 120px;
     height: auto;
     margin-bottom: 15px;
     border-radius: 30%;
 }
 
+h2{
+    margin-bottom: 10px;
+}
 /* Inputs e botão */
 form {
     display: flex;

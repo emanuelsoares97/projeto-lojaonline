@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
-    const logoutButton = document.getElementById("logout");
 
     if (loginForm) {
         loginForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            localStorage.setItem("user", "logado");
-            window.location.href = "index.html";
-        });
-    }
+            e.preventDefault(); // Impede o formulário de recarregar a página
 
-    if (logoutButton) {
-        logoutButton.addEventListener("click", () => {
-            localStorage.removeItem("user");
-            window.location.href = "login.html";
+            const username = document.getElementById("username").value;
+
+            if (username.trim() !== "") { // Verifica se o campo não está vazio
+                localStorage.setItem("user", username); // Guarda o nome no localStorage
+                window.location.href = "index.html"; // Redireciona para a página principal
+            } else {
+                alert("Por favor, insira um nome de utilizador.");
+            }
         });
     }
 });
+

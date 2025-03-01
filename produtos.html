@@ -18,14 +18,14 @@
         <nav class="navbar">
             <div class="home-login-icons">
                 <a href="index.html"><i class="material-icons" id="home-icon">home</i></a>
-                <a href="#" class="login-link"><i class="material-icons">login</i>Login</a> <!-- Link para a página de login -->
+                <a href="login.html" class="login-link" id="loginBtn"><i class="material-icons">login</i>Login</a> 
             </div>
             <div class="menu-icon" onclick="toggleMenu()">
                 <i class="material-icons">menu</i> <!--Icon 3 barras para o menu telemovel-->
             </div>
             <ul class="menu">
                 <li><a href="produtos.html">Produtos</a></li>
-                <li><a href="loja.html">Lojas</a></li>
+                <li><a href="carrinho.html">Carrinho</a></li>
                 <li><a href="contacto.html">Contatos</a></li>
             </ul>
         </nav>
@@ -46,78 +46,102 @@
                 </ul>
             </div>
             <section class="produtos" id="produtos">
-                <div class="produto" id="AirPod">
+                <div class="produto" data-nome="AirPod Ultra Fire" data-preco="150" id="AirPod">
                     <img src="./imagens/airpods/airpod1.webp" alt="AirPod Ultra Fire">
-                    <p class="descricao"> AirPod Ultra Fire</p>
+                    <p class="descricao">AirPod Ultra Fire</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
-                <div class="produto" id="AirPod">
+                
+                <div class="produto" data-nome="AirPod Ultra Water" data-preco="150" id="AirPod">
                     <img src="./imagens/airpods/airpod2.webp" alt="AirPod Ultra Water">
-                    <p class="descricao"> AirPod Ultra Water</p>
+                    <p class="descricao">AirPod Ultra Water</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
-                <div class="produto" id="AirPod">
+                
+                <div class="produto" data-nome="AirPod Ultra Air" data-preco="150" id="AirPod">
                     <img src="./imagens/airpods/airpod3.webp" alt="AirPod Ultra Air">
-                    <p class="descricao"> AirPod Ultra Air</p>
+                    <p class="descricao">AirPod Ultra Air</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
-                <div class="produto">
-                    <img src="./imagens/airpods/airpod4.webp" alt="AirPod" id="AirPod Spider">
-                    <p class="descricao"> AirPod Spider</p>
+                
+                <div class="produto" data-nome="AirPod Spider" data-preco="150" id="AirPod">
+                    <img src="./imagens/airpods/airpod4.webp" alt="AirPod Spider">
+                    <p class="descricao">AirPod Spider</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
-                <div class="produto" id="Iphone">
+                
+                <div class="produto" data-nome="Iphone Dourado" data-preco="150" id="Iphone">
                     <img src="./imagens/iphones/iphonedourado.webp" alt="Iphone Dourado">
-                    <p class="descricao"> Iphone Dourado</p>
+                    <p class="descricao">Iphone Dourado</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
-                <div class="produto" id="Iphone">
+                
+                <div class="produto" data-nome="Iphone Preto" data-preco="150" id="Iphone">
                     <img src="./imagens/iphones/iphonepreto.webp" alt="Iphone Preto">
-                    <p class="descricao"> Iphone Preto</p>
+                    <p class="descricao">Iphone Preto</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
-                <div class="produto" id="Iphone">
+                
+                <div class="produto" data-nome="Iphone Vermelho" data-preco="150" id="Iphone">
                     <img src="./imagens/iphones/iphonevermelho.webp" alt="Iphone Vermelho">
-                    <p class="descricao"> Iphone Vermelho</p>
+                    <p class="descricao">Iphone Vermelho</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
-                <div class="produto" id="Iphone">
+                
+                <div class="produto" data-nome="Iphone Azul" data-preco="150" id="Iphone">
                     <img src="./imagens/iphones/iphoneazul.webp" alt="Iphone Azul">
-                    <p class="descricao"> Iphone Azul</p>
+                    <p class="descricao">Iphone Azul</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
-                <div class="produto" id="AppleWatch">
+                
+                <div class="produto" data-nome="Apple Watch Verde" data-preco="150" id="AppleWatch">
                     <img src="./imagens/watch/watchverde.webp" alt="Apple Watch Verde">
-                    <p class="descricao"> Apple Watch Verde</p>
+                    <p class="descricao">Apple Watch Verde</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
-                <div class="produto" id="AppleWatch">
+                
+                <div class="produto" data-nome="Apple Watch Vermelho" data-preco="150" id="AppleWatch">
                     <img src="./imagens/watch/watchvermelho.webp" alt="Apple Watch Vermelho">
-                    <p class="descricao"> Apple Watch Vermelho</p>
+                    <p class="descricao">Apple Watch Vermelho</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
-                <div class="produto" id="AppleWatch">
-                    <img src="./imagens/watch/watchpreto.webp" alt="Apple Watch Azul">
-                    <p class="descricao"> Apple Watch Azul</p>
+                
+                <div class="produto" data-nome="Apple Watch Preto" data-preco="150" id="AppleWatch">
+                    <img src="./imagens/watch/watchpreto.webp" alt="Apple Watch Preto">
+                    <p class="descricao">Apple Watch Preto</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
-                <div class="produto" id="AppleWatch">
+                
+                <div class="produto" data-nome="Apple Watch Azul" data-preco="150" id="AppleWatch">
                     <img src="./imagens/watch/watchazul.webp" alt="Apple Watch Azul">
-                    <p class="descricao"> Apple Watch Azul</p>
+                    <p class="descricao">Apple Watch Azul</p>
                     <p class="preco-antigo">200€</p>
-                    <p class="preco-novo"> 150€</p>
+                    <p class="preco-novo">150€</p>
+                    <button class="add-carrinho">Adicionar ao Carrinho</button>
                 </div>
+                
             </section>
                 </main>
         </div>
@@ -160,8 +184,12 @@
             </div>
         </footer>
         
-
-    <script src="scripts/script.js"></script>
+    
+    <script src="scripts/adicionarproduto.js" defer></script>
+    <script src="scripts/script.js" defer></script>
     <script src="scripts/produtos.js" defer></script>
+    <script src="scripts/auth.js" defer></script>
+    <script src="scripts/index.js" defer></script>
+    <script src="scripts/authindex.js" defer></script>
 </body>
 </html>
