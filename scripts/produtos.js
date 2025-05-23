@@ -1,91 +1,17 @@
-const listaProdutos = [
-    {
-      nome: "AirPod Ultra Fire",
-      precoAntigo: "200€",
-      precoNovo: "150€",
-      imagem: "./imagens/airpods/airpod1.webp",
-      categoria: "AirPod"
-    },
-    {
-      nome: "AirPod Ultra Water",
-      precoAntigo: "200€",
-      precoNovo: "160€",
-      imagem: "./imagens/airpods/airpod2.webp",
-      categoria: "AirPod"
-    },
-    {
-      nome: "AirPod Ultra Air",
-      precoAntigo: "200€",
-      precoNovo: "170€",
-      imagem: "./imagens/airpods/airpod3.webp",
-      categoria: "AirPod"
-    },
-    {
-      nome: "AirPod Spider",
-      precoAntigo: "200€",
-      precoNovo: "180€",
-      imagem: "./imagens/airpods/airpod4.webp",
-      categoria: "AirPod"
-    },
-    {
-      nome: "Iphone Dourado",
-      precoAntigo: "300€",
-      precoNovo: "240€",
-      imagem: "./imagens/iphones/iphonedourado.webp",
-      categoria: "Iphone"
-    },
-    {
-      nome: "Iphone Preto",
-      precoAntigo: "3200€",
-      precoNovo: "2860€",
-      imagem: "./imagens/iphones/iphonepreto.webp",
-      categoria: "Iphone"
-    },
-    {
-      nome: "Iphone Vermelho",
-      precoAntigo: "2200€",
-      precoNovo: "1420€",
-      imagem: "./imagens/iphones/iphonevermelho.webp",
-      categoria: "Iphone"
-    },
-    {
-      nome: "Iphone Azul",
-      precoAntigo: "2000€",
-      precoNovo: "1570€",
-      imagem: "./imagens/iphones/iphoneazul.webp",
-      categoria: "Iphone"
-    },
-    {
-      nome: "Apple Watch Verde",
-      precoAntigo: "300€",
-      precoNovo: "170€",
-      imagem: "./imagens/watch/watchverde.webp",
-      categoria: "AppleWatch"
-    },
-    {
-      nome: "Apple Watch Vermelho",
-      precoAntigo: "400€",
-      precoNovo: "220€",
-      imagem: "./imagens/watch/watchvermelho.webp",
-      categoria: "AppleWatch"
-    },
-    {
-      nome: "Apple Watch Preto",
-      precoAntigo: "500€",
-      precoNovo: "330€",
-      imagem: "./imagens/watch/watchpreto.webp",
-      categoria: "AppleWatch"
-    },
-    {
-      nome: "Apple Watch Azul",
-      precoAntigo: "100€",
-      precoNovo: "40€",
-      imagem: "./imagens/watch/watchazul.webp",
-      categoria: "AppleWatch"
-    }
-  ];
-  
-  
+// Fetch dos produtos do arquivo JSON
+async function carregarProdutos() {
+  try {
+    const response = await fetch('../data/produtos.json');
+    const data = await response.json();
+    return data.produtos;
+  } catch (error) {
+    console.error('Erro ao carregar produtos:', error);
+    return [];
+  }
+}
+
+// Função para renderizar os produtos
+function renderizarProdutos(listaProdutos) {
   const container = document.getElementById("produtos");
   
   listaProdutos.forEach(produto => {
@@ -125,27 +51,30 @@ const listaProdutos = [
     // Adiciona o card ao container
     container.appendChild(div);
   });
-  
+}
 
+// Inicializa a aplicação
+document.addEventListener('DOMContentLoaded', async () => {
+  const produtos = await carregarProdutos();
+  renderizarProdutos(produtos);
 
-
-
-//funcao para aumentar a imagem quando clicada
-document.getElementById('produtos').addEventListener('click', function(e) {
+  //funcao para aumentar a imagem quando clicada
+  document.getElementById('produtos').addEventListener('click', function(e) {
     if (e.target.tagName === 'IMG') {
-        // Verifica se a imagem clicada já está ampliada
-        const isScaled = e.target.classList.contains('scaled');
+      // Verifica se a imagem clicada já está ampliada
+      const isScaled = e.target.classList.contains('scaled');
 
-        // Primeiro remove a classe 'scaled' de todas as imagens
-        document.querySelectorAll('#produtos img').forEach(img => {
-            img.classList.remove('scaled');
-        });
+      // Primeiro remove a classe 'scaled' de todas as imagens
+      document.querySelectorAll('#produtos img').forEach(img => {
+          img.classList.remove('scaled');
+      });
 
-        // Se a imagem clicada não estava ampliada, amplia-a
-        if (!isScaled) {
-            e.target.classList.add('scaled');
-        }
+      // Se a imagem clicada não estava ampliada, amplia-a
+      if (!isScaled) {
+          e.target.classList.add('scaled');
+      }
     }
+  });
 });
 
 // Variável para manter todas as categorias visiveis
@@ -165,7 +94,6 @@ function exibir_categoria(categoria) {
         categoriaAtiva = categoria;
 
         Array.from(elementos).forEach(elemento => {
-
             if (categoria === elemento.id) {
                 elemento.style.display = "block"; // mostra a categoria selecionada
             } else {
@@ -173,4 +101,4 @@ function exibir_categoria(categoria) {
             }
         });
     }
-};
+}

@@ -1,0 +1,8 @@
+brincos =1.99
+aneis= 0.30
+pulseiras=0.50
+chaveiro =1.60
+elastico =0.50
+bolsa=3.10
+brinquedo=0.5
+brincos=1

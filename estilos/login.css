@@ -8,14 +8,22 @@
     font-family: Arial, sans-serif;
 }
 
+:root {
+    --cor-principal: #e3867b; /* Salmão */
+    --cor-secundaria: #E6E6FA; /* Lavanda claro */
+    --cor-terciaria: #d9bde0; /* Lilás claro*/
+    --cor-destaque: #FFB6C1; /* Rosa claro */
+    --cor-texto: #59537d; /* Azul escuro para texto */
+    --cor-fundo: #FFF5EE; /* Salmão bem clarinho para fundo */
+}
+
 /* Estilizar o main */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
-    
+    background-color: var(--cor-fundo);
 }
 
 /* Container do login */
@@ -27,8 +35,8 @@ main {
     text-align: center;
     width: 90%;
     max-width: 350px;
-    border: 1px solid black;
-    box-shadow: 0px 0px 5px black;
+    border: 1px solid var(--cor-principal);
+    box-shadow: 0px 0px 5px var(--cor-terciaria);
 }
 
 /* Ajustar a imagem no topo */
@@ -39,9 +47,11 @@ main {
     border-radius: 30%;
 }
 
-h2{
+h2 {
     margin-bottom: 10px;
+    color: var(--cor-texto);
 }
+
 /* Inputs e botão */
 form {
     display: flex;
@@ -51,17 +61,24 @@ form {
 
 input, button {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--cor-terciaria);
     border-radius: 5px;
     font-size: 16px;
 }
 
 button {
-    background-color: #49a09d;
+    background-color: var(--cor-principal);
     color: white;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
 button:hover {
-    background-color: #3a807d;
+    background-color: var(--cor-destaque);
+    transform: scale(1.02);
+}
+
+label {
+    color: var(--cor-texto);
+    text-align: left;
 }
