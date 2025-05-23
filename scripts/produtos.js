@@ -153,7 +153,6 @@ let categoriaAtiva = null;
 
 function exibir_categoria(categoria) {
     const elementos = document.getElementsByClassName('produto');
-    console.log(elementos); // Para depuração, ver todos os elementos uma vez.
 
     if (categoria === categoriaAtiva) {
         // clicar numa categoria ativa mostra todas
@@ -166,7 +165,7 @@ function exibir_categoria(categoria) {
         categoriaAtiva = categoria;
 
         Array.from(elementos).forEach(elemento => {
-            console.log(elemento.id); // Imprime o ID de cada elemento.
+
             if (categoria === elemento.id) {
                 elemento.style.display = "block"; // mostra a categoria selecionada
             } else {
