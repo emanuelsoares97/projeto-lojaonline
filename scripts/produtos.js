@@ -28,16 +28,16 @@ function adicionarAoCarrinho(product) {
   let cart = JSON.parse(localStorage.getItem("carrinho")) || [];
   
   // Verificação de produto existente
-  const existingProduct = cart.find(item => item.name === product.name);
+  const existingProduct = cart.find(item => item.nome === product.name);
   
   if (existingProduct) {
-    existingProduct.quantity += 1;
+    existingProduct.quantidade += 1;
   } else {
     cart.push({
-      name: product.name,
-      price: parseFloat(product.price),
-      image: product.image,
-      quantity: 1
+      nome: product.name,
+      preco: parseFloat(product.price),
+      imagem: product.image,
+      quantidade: 1
     });
   }
   
