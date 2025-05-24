@@ -3,7 +3,7 @@ async function carregarProdutos() {
   try {
     // Determina se está rodando no GitHub Pages
     const isGitHubPages = window.location.hostname.includes('github.io');
-    const baseUrl = isGitHubPages ? '/projeto-recordeportugallojaeletro' : '';
+    const baseUrl = isGitHubPages ? '/projeto-lojaonline' : '';
     
     const response = await fetch(baseUrl + '/data/produtos.json');
     const data = await response.json();
@@ -12,7 +12,7 @@ async function carregarProdutos() {
     if (isGitHubPages) {
       data.produtos = data.produtos.map(produto => ({
         ...produto,
-        imagem: baseUrl + produto.imagem
+        imagem: produto.imagem.replace('../', baseUrl + '/')
       }));
     }
     
