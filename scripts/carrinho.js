@@ -5,8 +5,7 @@ const API_CONFIG = {
         : 'https://projeto-lovepulseiras-api.onrender.com', // Usando Render mesmo em desenvolvimento
     headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Origin': window.location.origin
+        'Accept': 'application/json'
     }
 };
 
@@ -150,7 +149,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 headers: API_CONFIG.headers,
                 body: JSON.stringify(orderData),
                 mode: 'cors',
-                credentials: 'same-origin'
+                credentials: 'omit'
             });
 
             console.log('Status da resposta:', response.status);
