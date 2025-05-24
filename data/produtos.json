@@ -1,137 +1,137 @@
 {
-  "produtos": [
+  "products": [
     {
-      "nome": "Brinco Blue Night",
-      "precoAntigo": "2.99€",
-      "precoNovo": "1.99€",
-      "imagem": "/imagens/brincos/blue-nigth.jpeg",
-      "categoria": "Brincos"
+      "name": "Brinco Blue Night",
+      "oldPrice": "2.99€",
+      "newPrice": "1.99€",
+      "image": "/imagens/brincos/blue-nigth.jpeg",
+      "category": "Brincos"
     },
     {
-      "nome": "Brinco Shooting Star",
-      "precoAntigo": "2.99€",
-      "precoNovo": "1.99€",
-      "imagem": "/imagens/brincos/shooting-star.jpeg",
-      "categoria": "Brincos"
+      "name": "Brinco Shooting Star",
+      "oldPrice": "2.99€",
+      "newPrice": "1.99€",
+      "image": "/imagens/brincos/shooting-star.jpeg",
+      "category": "Brincos"
     },
     {
-      "nome": "Brinco Fuego",
-      "precoAntigo": "2.99€",
-      "precoNovo": "1.99€",
-      "imagem": "/imagens/brincos/fuego.jpeg",
-      "categoria": "Brincos"
+      "name": "Brinco Fuego",
+      "oldPrice": "2.99€",
+      "newPrice": "1.99€",
+      "image": "/imagens/brincos/fuego.jpeg",
+      "category": "Brincos"
     },
     {
-      "nome": "Anel Rainbow",
-      "precoAntigo": "1.30€",
-      "precoNovo": "0.30€",
-      "imagem": "/imagens/aneis/rainbow.jpeg",
-      "categoria": "Aneis"
+      "name": "Anel Rainbow",
+      "oldPrice": "1.30€",
+      "newPrice": "0.30€",
+      "image": "/imagens/aneis/rainbow.jpeg",
+      "category": "Aneis"
     },
     {
-      "nome": "Pulseira Different Fire",
-      "precoAntigo": "1.50€",
-      "precoNovo": "0.50€",
-      "imagem": "/imagens/pulseiras/different-fire.jpeg",
-      "categoria": "Pulseiras"
+      "name": "Pulseira Different Fire",
+      "oldPrice": "1.50€",
+      "newPrice": "0.50€",
+      "image": "/imagens/pulseiras/different-fire.jpeg",
+      "category": "Pulseiras"
     },
     {
-      "nome": "Pulseira Black Rainbow",
-      "precoAntigo": "1.50€",
-      "precoNovo": "0.50€",
-      "imagem": "/imagens/pulseiras/black-raibow.jpeg",
-      "categoria": "Pulseiras"
+      "name": "Pulseira Black Rainbow",
+      "oldPrice": "1.50€",
+      "newPrice": "0.50€",
+      "image": "/imagens/pulseiras/black-raibow.jpeg",
+      "category": "Pulseiras"
     },
     {
-      "nome": "Pulseira Dragon Yellow",
-      "precoAntigo": "1.50€",
-      "precoNovo": "0.50€",
-      "imagem": "/imagens/pulseiras/dragon-yellow.jpeg",
-      "categoria": "Pulseiras"
+      "name": "Pulseira Dragon Yellow",
+      "oldPrice": "1.50€",
+      "newPrice": "0.50€",
+      "image": "/imagens/pulseiras/dragon-yellow.jpeg",
+      "category": "Pulseiras"
     },
     {
-      "nome": "Pulseira Dragon Blue",
-      "precoAntigo": "1.50€",
-      "precoNovo": "0.50€",
-      "imagem": "/imagens/pulseiras/dragon-blue.jpeg",
-      "categoria": "Pulseiras"
+      "name": "Pulseira Dragon Blue",
+      "oldPrice": "1.50€",
+      "newPrice": "0.50€",
+      "image": "/imagens/pulseiras/dragon-blue.jpeg",
+      "category": "Pulseiras"
     },
     {
-      "nome": "Pulseira Dragon Dark Green",
-      "precoAntigo": "1.50€",
-      "precoNovo": "0.50€",
-      "imagem": "/imagens/pulseiras/dragon-darkgreen.jpeg",
-      "categoria": "Pulseiras"
+      "name": "Pulseira Dragon Dark Green",
+      "oldPrice": "1.50€",
+      "newPrice": "0.50€",
+      "image": "/imagens/pulseiras/dragon-darkgreen.jpeg",
+      "category": "Pulseiras"
     },
     {
-      "nome": "Pulseira Cloudy Sky",
-      "precoAntigo": "1.50€",
-      "precoNovo": "0.50€",
-      "imagem": "/imagens/pulseiras/cloudy-sky.jpeg",
-      "categoria": "Pulseiras"
+      "name": "Pulseira Cloudy Sky",
+      "oldPrice": "1.50€",
+      "newPrice": "0.50€",
+      "image": "/imagens/pulseiras/cloudy-sky.jpeg",
+      "category": "Pulseiras"
     },
     {
-      "nome": "Chaveiro Pencil Flower",
-      "precoAntigo": "2.60€",
-      "precoNovo": "1.60€",
-      "imagem": "/imagens/chaveiro/pencil-flower.jpeg",
-      "categoria": "Chaveiro"
+      "name": "Chaveiro Pencil Flower",
+      "oldPrice": "2.60€",
+      "newPrice": "1.60€",
+      "image": "/imagens/chaveiro/pencil-flower.jpeg",
+      "category": "Chaveiro"
     },
     {
-      "nome": "Chaveiro Cute White",
-      "precoAntigo": "2.60€",
-      "precoNovo": "1.60€",
-      "imagem": "/imagens/chaveiro/cute-white.jpeg",
-      "categoria": "Chaveiro"
+      "name": "Chaveiro Cute White",
+      "oldPrice": "2.60€",
+      "newPrice": "1.60€",
+      "image": "/imagens/chaveiro/cute-white.jpeg",
+      "category": "Chaveiro"
     },
     {
-      "nome": "Chaveiro Cute Yellow",
-      "precoAntigo": "2.60€",
-      "precoNovo": "1.60€",
-      "imagem": "/imagens/chaveiro/cute-yellow.jpeg",
-      "categoria": "Chaveiro"
+      "name": "Chaveiro Cute Yellow",
+      "oldPrice": "2.60€",
+      "newPrice": "1.60€",
+      "image": "/imagens/chaveiro/cute-yellow.jpeg",
+      "category": "Chaveiro"
     },
     {
-      "nome": "Chaveiro Cute Pink",
-      "precoAntigo": "2.60€",
-      "precoNovo": "1.60€",
-      "imagem": "/imagens/chaveiro/cute-pink.jpeg",
-      "categoria": "Chaveiro"
+      "name": "Chaveiro Cute Pink",
+      "oldPrice": "2.60€",
+      "newPrice": "1.60€",
+      "image": "/imagens/chaveiro/cute-pink.jpeg",
+      "category": "Chaveiro"
     },
     {
-      "nome": "Elástico Rose",
-      "precoAntigo": "1.50€",
-      "precoNovo": "0.50€",
-      "imagem": "/imagens/elastico de cabelo/rose-elastic.jpeg",
-      "categoria": "Elastico"
+      "name": "Elástico Rose",
+      "oldPrice": "1.50€",
+      "newPrice": "0.50€",
+      "image": "/imagens/elastico de cabelo/rose-elastic.jpeg",
+      "category": "Elastico"
     },
     {
-      "nome": "Bolsa Green",
-      "precoAntigo": "4.10€",
-      "precoNovo": "3.10€",
-      "imagem": "/imagens/bolsa/bag-green.jpeg",
-      "categoria": "Bolsa"
+      "name": "Bolsa Green",
+      "oldPrice": "4.10€",
+      "newPrice": "3.10€",
+      "image": "/imagens/bolsa/bag-green.jpeg",
+      "category": "Bolsa"
     },
     {
-      "nome": "Bolsa Blue",
-      "precoAntigo": "4.10€",
-      "precoNovo": "3.10€",
-      "imagem": "/imagens/bolsa/bag-blue.jpeg",
-      "categoria": "Bolsa"
+      "name": "Bolsa Blue",
+      "oldPrice": "4.10€",
+      "newPrice": "3.10€",
+      "image": "/imagens/bolsa/bag-blue.jpeg",
+      "category": "Bolsa"
     },
     {
-      "nome": "Fidget Toy Anxiety",
-      "precoAntigo": "1.50€",
-      "precoNovo": "0.50€",
-      "imagem": "/imagens/brinquedo/fidget-toy-anxiety.jpeg",
-      "categoria": "Brinquedo"
+      "name": "Fidget Toy Anxiety",
+      "oldPrice": "1.50€",
+      "newPrice": "0.50€",
+      "image": "/imagens/brinquedo/fidget-toy-anxiety.jpeg",
+      "category": "Brinquedo"
     },
     {
-      "nome": "Circle Fidget",
-      "precoAntigo": "1.50€",
-      "precoNovo": "0.50€",
-      "imagem": "/imagens/brinquedo/circle-fidget.jpeg",
-      "categoria": "Brinquedo"
+      "name": "Circle Fidget",
+      "oldPrice": "1.50€",
+      "newPrice": "0.50€",
+      "image": "/imagens/brinquedo/circle-fidget.jpeg",
+      "category": "Brinquedo"
     }
   ]
 } 
