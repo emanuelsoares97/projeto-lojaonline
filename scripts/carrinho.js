@@ -1,3 +1,5 @@
+import API_CONFIG from './config.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     // Inicialização do carrinho a partir do localStorage
     let cart = JSON.parse(localStorage.getItem("carrinho")) || [];
@@ -83,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             // Envio da encomenda para o servidor
-            const response = await fetch('http://localhost:5000/api/orders', {
+            const response = await fetch(`${API_CONFIG.baseURL}/api/orders`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
