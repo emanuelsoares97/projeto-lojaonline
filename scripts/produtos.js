@@ -1,17 +1,20 @@
 // Carregamento dos produtos do ficheiro JSON
 async function carregarProdutos() {
   try {
-    // Determina se está rodando no GitHub Pages
+    // Determina se está rodando no GitHub Pages ou localmente
     const isGitHubPages = window.location.hostname.includes('github.io');
     const baseUrl = isGitHubPages ? '/projeto-lojaonline' : '';
     
     const response = await fetch(baseUrl + '/data/produtos.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     const data = await response.json();
     
-    // Ajusta os caminhos das imagens para o GitHub Pages
+    // Ajusta os caminhos das imagens
     data.products = data.products.map(product => ({
       ...product,
-      image: (isGitHubPages ? baseUrl : '') + product.image
+      image: baseUrl + product.image
     }));
     
     return data.products;
@@ -23,31 +26,43 @@ async function carregarProdutos() {
 
 // Gestão do carrinho de compras
 function adicionarAoCarrinho(product) {
-  console.log('Tentando adicionar produto:', product);
-  let cart = JSON.parse(localStorage.getItem("carrinho")) || [];
-  console.log('Carrinho atual:', cart);
-  
-  // Verificação de produto existente
-  const existingProduct = cart.find(item => item.nome === product.name);
-  console.log('Produto existente?', existingProduct);
-  
-  if (existingProduct) {
-    existingProduct.quantidade += 1;
-    console.log('Quantidade atualizada para:', existingProduct.quantidade);
-  } else {
-    const newProduct = {
-      nome: product.name,
-      preco: parseFloat(product.price) || 0,
-      imagem: product.image || '',
-      quantidade: 1
-    };
-    console.log('Novo produto a ser adicionado:', newProduct);
-    cart.push(newProduct);
+  try {
+    console.log('Tentando adicionar produto:', product);
+    
+    if (!product || !product.name || typeof product.price !== 'number') {
+      console.error('Dados do produto inválidos:', product);
+      mostrarNotificacao("Erro ao adicionar produto. Dados inválidos.");
+      return;
+    }
+    
+    let cart = JSON.parse(localStorage.getItem("carrinho")) || [];
+    console.log('Carrinho atual:', cart);
+    
+    // Verificação de produto existente
+    const existingProduct = cart.find(item => item.nome === product.name);
+    console.log('Produto existente?', existingProduct);
+    
+    if (existingProduct) {
+      existingProduct.quantidade = (existingProduct.quantidade || 1) + 1;
+      console.log('Quantidade atualizada para:', existingProduct.quantidade);
+    } else {
+      const newProduct = {
+        nome: product.name,
+        preco: product.price,
+        imagem: product.image,
+        quantidade: 1
+      };
+      console.log('Novo produto a ser adicionado:', newProduct);
+      cart.push(newProduct);
+    }
+    
+    console.log('Carrinho após adição:', cart);
+    localStorage.setItem("carrinho", JSON.stringify(cart));
+    mostrarNotificacao("Produto adicionado ao carrinho!");
+  } catch (error) {
+    console.error('Erro ao adicionar ao carrinho:', error);
+    mostrarNotificacao("Erro ao adicionar produto ao carrinho. Por favor, tente novamente.");
   }
-  
-  console.log('Carrinho após adição:', cart);
-  localStorage.setItem("carrinho", JSON.stringify(cart));
-  mostrarNotificacao("Produto adicionado ao carrinho!");
 }
 
 // Função para mostrar notificação
@@ -83,7 +98,10 @@ function renderizarProdutos(productList) {
     div.classList.add("produto");
     div.id = product.category;
     div.setAttribute("data-nome", product.name);
-    div.setAttribute("data-preco", product.newPrice.replace("€", "")); 
+    
+    // Remove o símbolo € e converte para número
+    const price = parseFloat(product.newPrice.replace("€", "").trim());
+    div.setAttribute("data-preco", price.toString());
   
     const img = document.createElement("img");
     img.src = product.image;
@@ -110,10 +128,17 @@ function renderizarProdutos(productList) {
       console.log('Botão clicado para o produto:', product.name);
       const price = parseFloat(product.newPrice.replace("€", "").trim());
       console.log('Preço convertido:', price);
+      
+      if (isNaN(price)) {
+        console.error('Erro ao converter preço:', product.newPrice);
+        mostrarNotificacao("Erro ao adicionar produto. Por favor, tente novamente.");
+        return;
+      }
+      
       adicionarAoCarrinho({
         name: product.name,
         price: price,
-        image: product.image || ''
+        image: product.image
       });
     });
   
