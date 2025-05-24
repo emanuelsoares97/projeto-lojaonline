@@ -102,9 +102,9 @@
         // Ajusta os caminhos das imagens para o GitHub Pages
         document.addEventListener('DOMContentLoaded', function() {
             if (window.location.hostname.includes('github.io')) {
-                const baseUrl = '/projeto-recordeportugallojaeletro';
+                const baseUrl = '/projeto-lojaonline';
                 document.querySelectorAll('img').forEach(img => {
-                    if (img.src.includes('/imagens/')) {
+                    if (img.src.includes('/imagens/') || img.src.includes('/icons/')) {
                         img.src = baseUrl + img.getAttribute('src');
                     }
                 });
@@ -114,5 +114,6 @@
     
     <script src="scripts/script.js" defer></script>
     <script src="scripts/auth.js" defer></script>
+    <script src="scripts/contacto.js" type="module" defer></script>
 </body>
 </html>
