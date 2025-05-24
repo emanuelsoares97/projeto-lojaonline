@@ -42,7 +42,29 @@ function adicionarAoCarrinho(produto) {
   }
   
   localStorage.setItem("carrinho", JSON.stringify(carrinho));
-  alert("Produto adicionado ao carrinho!");
+  mostrarNotificacao("Produto adicionado ao carrinho!");
+}
+
+// Função para mostrar notificação
+function mostrarNotificacao(mensagem) {
+  // Verifica se já existe uma notificação e remove
+  const notificacaoExistente = document.querySelector('.notificacao');
+  if (notificacaoExistente) {
+    notificacaoExistente.remove();
+  }
+
+  // Cria o elemento de notificação
+  const notificacao = document.createElement('div');
+  notificacao.classList.add('notificacao');
+  notificacao.textContent = mensagem;
+
+  // Adiciona ao corpo do documento
+  document.body.appendChild(notificacao);
+
+  // Remove a notificação após 3 segundos
+  setTimeout(() => {
+    notificacao.remove();
+  }, 3000);
 }
 
 // Renderização dos produtos na interface
