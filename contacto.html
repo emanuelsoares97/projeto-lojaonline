@@ -6,21 +6,19 @@
     <title>Contactos</title>
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/contactospagstyle.css">
-    <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/mediaquerie.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-
     <header>
         <!-- Menu-->
         <nav class="navbar">
             <div class="home-login-icons">
-                <a href="index.html"><i class="material-icons" id="home-icon">home</i></a>
+                <a href="index.html"><img src="/imagens/logo.jpeg" alt="Logo" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover;"></a>
                 <a href="login.html" class="login-link" id="loginBtn"><i class="material-icons">login</i>Login</a> 
             </div>
             <div class="menu-icon" onclick="toggleMenu()">
-                <i class="material-icons">menu</i> <!--Icon 3 barras para o menu telemovel-->
+                <i class="material-icons">menu</i>
             </div>
             <ul class="menu">
                 <li><a href="produtos.html">Produtos</a></li>
@@ -29,49 +27,54 @@
             </ul>
         </nav>
     </header>
-    <h1>Fala Conosco</h1>
-    <hr>
+
     <main class="maincontactos">
+        <h1>Fale Conosco</h1>
+        <hr>
 
+        <div class="contact-container">
+            <section class="contactos-loja">
+                <fieldset>
+                    <legend>Informações de Contacto</legend>
+                    <p><strong>Nome:</strong> LovePulseiras</p>
+                    <p><strong>Telemóvel:</strong> +351 969548849</p>
+                    <p><strong>Email:</strong> tutasoares17@gmail.com</p>
+                </fieldset>
+            </section>
 
-        <section class="contactos-loja">
-            <fieldset>
-                <legend>Contactos da Empresa</legend>
-                    <p><strong>Nome da Empresa:</strong> Tech Innovations Ltd.</p>
-                    <p><strong>Morada:</strong> Rua das Inovações, 500 Parque Tecnológico do Vale 2740-122 Oeiras Portugal</p>
-                    <p><strong>Telefone:</strong> +351 21 234 5678</p>
-                
-            </fieldset>
-        </section>
-        <section class="formulario">
-            <form action="form.php">
-                <div class="campo">
-                    <label for="inome">Nome: </label>
-                    <input type="text" id="inome" name="nome" required>
-                </div>
-                <div class="campo">
-                    <label for="iemail">Email: </label>
-                    <input type="email" name="email" id="iemail" required>
-                </div>
-                <div class="campo">
-                    <label for="inumero">Número: </label>
-                    <input type="number" name="numero" id="inumero" required>
-                </div>
-                <div class="campo">
-                    <label for="imensagem">Mensagem: </label>
-                    <textarea id="imensagem" name="mensagem" required></textarea>
-                </div>
-                <div class="botaoenviar"><input type="submit" value="Enviar"></div>
-            </form>
-        </section>
+            <section class="formulario">
+                <h2>Envie sua Mensagem</h2>
+                <form id="contactForm">
+                    <div class="campo">
+                        <label for="inome">Nome:</label>
+                        <input type="text" id="inome" name="nome" required>
+                    </div>
+                    <div class="campo">
+                        <label for="iemail">Email:</label>
+                        <input type="email" name="email" id="iemail" required>
+                    </div>
+                    <div class="campo">
+                        <label for="inumero">Telemóvel:</label>
+                        <input type="tel" name="numero" id="inumero" required>
+                    </div>
+                    <div class="campo">
+                        <label for="imensagem">Mensagem:</label>
+                        <textarea id="imensagem" name="mensagem" required></textarea>
+                    </div>
+                    <div class="botaoenviar">
+                        <button type="submit">Enviar Mensagem</button>
+                    </div>
+                </form>
+            </section>
+        </div>
     </main>
+
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-section">
                 <h3>Contato</h3>
-                <p>Telefone: +351 21 234 5678</p>
-                <p>Email: info@seudominio.com</p>
-                <p>Endereço: Rua das Inovações, 500 Parque Tecnológico do Vale 2740-122 Oeiras Portugal</p>
+                <p>Telemóvel: +351 969548849</p>
+                <p>Email: tutasoares17@gmail.com</p>
             </div>
             <div class="footer-section">
                 <h3>Empresa</h3>
@@ -80,13 +83,6 @@
                     <li><a href="#">Política de Privacidade</a></li>
                     <li><a href="#">Termos de Serviço</a></li>
                 </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Newsletter</h3>
-                <form action="subscribe.php" method="post">
-                    <input type="email" name="email" placeholder="Digite seu email" required>
-                    <button type="submit" id="botao-inscrever">Inscrever-se</button>
-                </form>
             </div>
             <div class="footer-section">
                 <h3>Siga-nos</h3>
@@ -98,15 +94,26 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Revendas. Todos os direitos reservados.</p>
+            <p>© 2025 LovePulseiras</p>
         </div>
     </footer>
+
+    <script>
+        // Ajusta os caminhos das imagens para o GitHub Pages
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.location.hostname.includes('github.io')) {
+                const baseUrl = '/projeto-recordeportugallojaeletro';
+                document.querySelectorAll('img').forEach(img => {
+                    if (img.src.includes('/imagens/')) {
+                        img.src = baseUrl + img.getAttribute('src');
+                    }
+                });
+            }
+        });
+    </script>
     
     <script src="scripts/script.js" defer></script>
-    <script src="scripts/produtos.js" defer></script>
-    <script src="scripts/auth.js" defer></script>
-    <script src="scripts/index.js" defer></script>
-    <script src="scripts/authindex.js" defer></script>
     <script src="scripts/contacto.js" defer></script>
+    <script src="scripts/auth.js" defer></script>
 </body>
 </html>
