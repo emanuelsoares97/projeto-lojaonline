@@ -1,3 +1,5 @@
+import API_CONFIG from './config.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.formulario form');
 
@@ -12,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('http://localhost:5000/api/contacts', {
+            const response = await fetch(`${API_CONFIG.baseURL}/api/contacts`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
