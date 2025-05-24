@@ -37,10 +37,11 @@ h1 {
 
 /* Logo styles */
 .home-login-icons img {
-    height: 40px;
-    width: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 10px;
 }
 
 /* Navegação responsiva - Mobile First */
