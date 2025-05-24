@@ -18,7 +18,7 @@
         <!-- Menu-->
         <nav class="navbar">
             <div class="home-login-icons">
-                <a href="index.html"><img src="./imagens/logo.jpeg" alt="Logo" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover;"></a>
+                <a href="index.html"><img src="/imagens/logo.jpeg" alt="Logo" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover;"></a>
                 <a href="login.html" class="login-link" id="loginBtn"><i class="material-icons">login</i>Login</a> 
             </div>
             <div class="menu-icon" onclick="toggleMenu()">
@@ -40,9 +40,9 @@
             <div class="carousel">
                 <div class="carousel">
                     <div class="carousel-container">
-                        <img src="./imagens/brincos/blue-nigth.jpeg" class="carousel-item">
-                        <img src="./imagens/brincos/shooting-star.jpeg" class="carousel-item">
-                        <img src="./imagens/brincos/fuego.jpeg" class="carousel-item">
+                        <img src="/imagens/brincos/blue-nigth.jpeg" class="carousel-item">
+                        <img src="/imagens/brincos/shooting-star.jpeg" class="carousel-item">
+                        <img src="/imagens/brincos/fuego.jpeg" class="carousel-item">
                     </div>
                     <button id="prev">❮</button>
                     <button id="next">❯</button>
@@ -87,8 +87,23 @@
         </div>
     </footer>
 
-    <script src="scripts/auth.js" defer></script>
+    <script>
+        // Ajusta os caminhos das imagens para o GitHub Pages
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.location.hostname.includes('github.io')) {
+                const baseUrl = '/projeto-recordeportugallojaeletro';
+                document.querySelectorAll('img').forEach(img => {
+                    if (img.src.includes('/imagens/')) {
+                        img.src = baseUrl + img.getAttribute('src');
+                    }
+                });
+            }
+        });
+    </script>
+
     <script src="scripts/script.js" defer></script>
+    <script src="scripts/produtos.js" defer></script>
+    <script src="scripts/auth.js" defer></script>
     <script src="scripts/index.js" defer></script>
     <script src="scripts/authindex.js" defer></script>
 </body>
