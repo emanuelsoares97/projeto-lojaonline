@@ -36,9 +36,9 @@ h1 {
 }
 
 /* Logo styles */
-.home-login-icons img {
-    width: 35px;
-    height: 35px;
+.home-login-icons a img {
+    width: 35px !important;
+    height: 35px !important;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
