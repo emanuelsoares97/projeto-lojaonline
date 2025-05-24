@@ -87,6 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
             phone: ""  // Pode ser adicionado um campo no futuro
         };
 
+        console.log('Dados do pedido:', orderData); // Debug dos dados
+
         try {
             // Envio da encomenda para o servidor
             const response = await fetch(`${API_CONFIG.baseURL}/api/orders`, {
