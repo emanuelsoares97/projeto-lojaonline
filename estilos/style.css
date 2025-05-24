@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* Reset a todo o site */
+/* Normalização do estilo base */
 * {
     margin: 0px;
     padding: 0px;
@@ -8,15 +8,17 @@
     box-sizing: border-box;
 }
 
+/* Definição das cores do tema */
 :root {
-    --cor-principal: #e3867b; /* Salmão */
-    --cor-secundaria: #E6E6FA; /* Lavanda claro */
-    --cor-terciaria: #d9bde0; /* Lilás claro*/
-    --cor-destaque: #FFB6C1; /* Rosa claro */
-    --cor-texto: #59537d; /* Azul escuro para texto */
-    --cor-fundo: #FFF5EE; /* Salmão bem clarinho para fundo */
+    --cor-principal: #e3867b;    /* Salmão rosado */
+    --cor-secundaria: #E6E6FA;   /* Lavanda suave */
+    --cor-terciaria: #d9bde0;    /* Lilás pastel */
+    --cor-destaque: #FFB6C1;     /* Rosa delicado */
+    --cor-texto: #59537d;        /* Azul acinzentado */
+    --cor-fundo: #FFF5EE;        /* Salmão claro */
 }
 
+/* Estrutura base da página */
 body {
     padding-top: 50px;
     background-color: var(--cor-fundo);
@@ -33,7 +35,7 @@ h1 {
     color: var(--cor-texto);
 }
 
-/* Mobile First - Menu escondido por padrão */
+/* Navegação responsiva - Mobile First */
 .navbar {
     width: 100%;
     padding: 10px 20px;
@@ -53,6 +55,7 @@ h1 {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Elementos de autenticação */
 .home-login-icons {
     display: flex;
     align-items: center;
@@ -76,7 +79,7 @@ h1 {
     color: white;
 }
 
-/* Define o menu inicial escondido no telemovel */
+/* Menu de navegação móvel */
 .menu {
     display: none;
     flex-direction: column;
@@ -91,12 +94,12 @@ h1 {
     border: 1px solid var(--cor-destaque);
 }
 
-/* Estilos do menu quando ativado */
+/* Estados do menu */
 .menu.active {
     display: flex;
 }
 
-/* Estilos dos links do menu */
+/* Estilização dos links */
 .menu a {
     color: var(--cor-texto);
     text-decoration: none;
@@ -110,7 +113,7 @@ h1 {
     color: var(--cor-principal);
 }
 
-/* Estiliza o ícone do menu hamburguer */
+/* Ícone do menu móvel */
 .menu-icon {
     display: flex;
     align-items: center;
@@ -125,7 +128,7 @@ h2 {
     color: var(--cor-texto);
 }
 
-/*estilos footer*/
+/* Rodapé */
 .site-footer {
     background-color: var(--cor-principal);
     color: white;
@@ -164,6 +167,7 @@ h2 {
     color: var(--cor-secundaria);
 }
 
+/* Formulário da newsletter */
 .footer-section form {
     display: flex;
     gap: 10px;
@@ -177,6 +181,7 @@ h2 {
     background-color: white;
 }
 
+/* Botão de inscrição */
 .footer-section form button#botao-inscrever {
     padding: 8px 16px;
     background-color: var(--cor-terciaria);
@@ -192,6 +197,7 @@ h2 {
     transform: scale(1.05);
 }
 
+/* Ícones sociais */
 .footer-section .social-icons a {
     display: inline-block;
     margin-right: 10px;
