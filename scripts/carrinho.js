@@ -76,11 +76,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 name: item.nome,
                 quantity: item.quantidade,
                 price: item.preco,
-                total_item: item.preco * item.quantidade
+                image: item.imagem
             })),
             total: total,
             date: new Date().toISOString(),
-            client: user
+            login_name: user,  // Nome do usuário logado
+            customer: user,    // Mantendo compatibilidade
+            customer_email: "",  // Pode ser adicionado um campo no futuro
+            delivery_address: "",  // Pode ser adicionado um campo no futuro
+            phone: ""  // Pode ser adicionado um campo no futuro
         };
 
         try {
