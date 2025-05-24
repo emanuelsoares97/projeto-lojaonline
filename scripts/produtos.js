@@ -12,7 +12,7 @@ async function carregarProdutos() {
     if (isGitHubPages) {
       data.produtos = data.produtos.map(produto => ({
         ...produto,
-        imagem: baseUrl + produto.imagem.substring(2)
+        imagem: baseUrl + produto.imagem
       }));
     }
     
