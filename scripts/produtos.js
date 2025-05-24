@@ -1,8 +1,21 @@
-// Fetch dos produtos do arquivo JSON
+// Carregamento dos produtos do ficheiro JSON
 async function carregarProdutos() {
   try {
-    const response = await fetch('../data/produtos.json');
+    // Determina se está rodando no GitHub Pages
+    const isGitHubPages = window.location.hostname.includes('github.io');
+    const baseUrl = isGitHubPages ? '/projeto-recordeportugallojaeletro' : '';
+    
+    const response = await fetch(baseUrl + '/data/produtos.json');
     const data = await response.json();
+    
+    // Ajusta os caminhos das imagens para o GitHub Pages
+    if (isGitHubPages) {
+      data.produtos = data.produtos.map(produto => ({
+        ...produto,
+        imagem: baseUrl + produto.imagem
+      }));
+    }
+    
     return data.produtos;
   } catch (error) {
     console.error('Erro ao carregar produtos:', error);
@@ -10,7 +23,29 @@ async function carregarProdutos() {
   }
 }
 
-// Função para renderizar os produtos
+// Gestão do carrinho de compras
+function adicionarAoCarrinho(produto) {
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  
+  // Verificação de produto existente
+  const produtoExistente = carrinho.find(item => item.nome === produto.nome);
+  
+  if (produtoExistente) {
+    produtoExistente.quantidade += 1;
+  } else {
+    carrinho.push({
+      nome: produto.nome,
+      preco: parseFloat(produto.preco),
+      imagem: produto.imagem,
+      quantidade: 1
+    });
+  }
+  
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  alert("Produto adicionado ao carrinho!");
+}
+
+// Renderização dos produtos na interface
 function renderizarProdutos(listaProdutos) {
   const container = document.getElementById("produtos");
   
@@ -40,15 +75,23 @@ function renderizarProdutos(listaProdutos) {
     const botao = document.createElement("button");
     botao.classList.add("add-carrinho");
     botao.textContent = "Adicionar ao Carrinho";
+    
+    // Gestão do evento de clique para adicionar ao carrinho
+    botao.addEventListener("click", () => {
+      adicionarAoCarrinho({
+        nome: produto.nome,
+        preco: parseFloat(produto.precoNovo.replace("€", "")),
+        imagem: produto.imagem
+      });
+    });
   
-    // Adiciona tudo ao card
+    // Montagem do card do produto
     div.appendChild(img);
     div.appendChild(descricao);
     div.appendChild(precoAntigo);
     div.appendChild(precoNovo);
     div.appendChild(botao);
   
-    // Adiciona o card ao container
     container.appendChild(div);
   });
 }
@@ -77,27 +120,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 });
 
-// Variável para manter todas as categorias visiveis
+// Gestão da visualização por categorias
 let categoriaAtiva = null;
 
 function exibir_categoria(categoria) {
     const elementos = document.getElementsByClassName('produto');
 
     if (categoria === categoriaAtiva) {
-        // clicar numa categoria ativa mostra todas
+        // Exibição de todos os produtos ao clicar numa categoria já ativa
         Array.from(elementos).forEach(elemento => {
             elemento.style.display = "block";
         });
-        categoriaAtiva = null; // quando clicar de novo volta a estar todas visiveis
+        categoriaAtiva = null;
     } else {
-        // é onde a categoria é selecionada
+        // Filtragem dos produtos por categoria
         categoriaAtiva = categoria;
 
         Array.from(elementos).forEach(elemento => {
             if (categoria === elemento.id) {
-                elemento.style.display = "block"; // mostra a categoria selecionada
+                elemento.style.display = "block";
             } else {
-                elemento.style.display = "none"; // esconde os outros elementos nao selecionados
+                elemento.style.display = "none";
             }
         });
     }
