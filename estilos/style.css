@@ -35,6 +35,14 @@ h1 {
     color: var(--cor-texto);
 }
 
+/* Logo styles */
+.home-login-icons img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 /* Navegação responsiva - Mobile First */
 .navbar {
     width: 100%;
