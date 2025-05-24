@@ -127,22 +127,26 @@ document.addEventListener("DOMContentLoaded", async () => {
                 name: item.nome,
                 quantity: parseInt(item.quantidade) || 1,
                 price: parseFloat(item.preco) || 0,
-                total_item: (parseFloat(item.preco) || 0) * (parseInt(item.quantidade) || 1),
-                image: item.imagem
+                image: item.imagem || ''
             })),
             total: total,
             date: new Date().toISOString(),
             client: user,
             customer: user,
-            customer_email: "cliente@example.com",  // Email temporário
+            customer_email: user,
             login_name: user,
             delivery_address: "Endereço a definir",
             phone: "Telefone a definir"
         };
 
-        console.log('Enviando pedido para:', `${API_CONFIG.baseURL}/api/orders`);
-        console.log('Headers:', API_CONFIG.headers);
-        console.log('Dados do pedido:', orderData);
+        // Debug logs detalhados
+        console.log('Detalhes do pedido:');
+        console.log('Items:', JSON.stringify(orderData.items, null, 2));
+        console.log('Total:', orderData.total);
+        console.log('User:', user);
+        console.log('Request URL:', `${API_CONFIG.baseURL}/api/orders`);
+        console.log('Request Headers:', API_CONFIG.headers);
+        console.log('Request Body:', JSON.stringify(orderData, null, 2));
 
         try {
             // Envio da encomenda para o servidor
@@ -160,6 +164,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (!response.ok) {
                 const errorText = await response.text();
                 console.error('Resposta de erro do servidor:', errorText);
+                console.error('Dados que causaram o erro:', JSON.stringify(orderData, null, 2));
                 throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
             }
 
