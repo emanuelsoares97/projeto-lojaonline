@@ -9,12 +9,10 @@ async function carregarProdutos() {
     const data = await response.json();
     
     // Ajusta os caminhos das imagens para o GitHub Pages
-    if (isGitHubPages) {
-      data.products = data.products.map(product => ({
-        ...product,
-        image: baseUrl + product.image
-      }));
-    }
+    data.products = data.products.map(product => ({
+      ...product,
+      image: (isGitHubPages ? baseUrl : '') + product.image
+    }));
     
     return data.products;
   } catch (error) {
@@ -39,8 +37,8 @@ function adicionarAoCarrinho(product) {
   } else {
     const newProduct = {
       nome: product.name,
-      preco: parseFloat(product.price),
-      imagem: product.image,
+      preco: parseFloat(product.price) || 0,
+      imagem: product.image || '',
       quantidade: 1
     };
     console.log('Novo produto a ser adicionado:', newProduct);
@@ -115,7 +113,7 @@ function renderizarProdutos(productList) {
       adicionarAoCarrinho({
         name: product.name,
         price: price,
-        image: product.image
+        image: product.image || ''
       });
     });
   
