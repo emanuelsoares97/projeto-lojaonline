@@ -18,7 +18,7 @@
         <!-- Menu-->
         <nav class="navbar">
             <div class="home-login-icons">
-                <a href="index.html"><img src="/imagens/logo.jpeg" alt="Logo" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover;"></a>
+                <a href="index.html"><img src="./imagens/logo.jpeg" alt="Logo" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover;"></a>
                 <a href="login.html" class="login-link" id="loginBtn"><i class="material-icons">login</i>Login</a> 
             </div>
             <div class="menu-icon" onclick="toggleMenu()">
@@ -40,9 +40,9 @@
             <div class="carousel">
                 <div class="carousel">
                     <div class="carousel-container">
-                        <img src="/imagens/brincos/blue-nigth.jpeg" class="carousel-item">
-                        <img src="/imagens/brincos/shooting-star.jpeg" class="carousel-item">
-                        <img src="/imagens/brincos/fuego.jpeg" class="carousel-item">
+                        <img src="./imagens/brincos/blue-nigth.jpeg" class="carousel-item">
+                        <img src="./imagens/brincos/shooting-star.jpeg" class="carousel-item">
+                        <img src="./imagens/brincos/fuego.jpeg" class="carousel-item">
                     </div>
                     <button id="prev">❮</button>
                     <button id="next">❯</button>
@@ -76,9 +76,9 @@
             <div class="footer-section">
                 <h3>Siga-nos</h3>
                 <div class="social-icons">
-                    <a href="#" target="_blank"><img src="icons/facebook.png" alt="Facebook"></a>
-                    <a href="#" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
-                    <a href="#" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="#" target="_blank"><img src="./icons/facebook.png" alt="Facebook"></a>
+                    <a href="#" target="_blank"><img src="./icons/instagram.png" alt="Instagram"></a>
+                    <a href="#" target="_blank"><img src="./icons/twitter.png" alt="Twitter"></a>
                 </div>
             </div>
         </div>
@@ -86,20 +86,6 @@
             <p>© 2025 LovePulseiras</p>
         </div>
     </footer>
-
-    <script>
-        // Ajusta os caminhos das imagens para o GitHub Pages
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.location.hostname.includes('github.io')) {
-                const baseUrl = '/projeto-recordeportugallojaeletro';
-                document.querySelectorAll('img').forEach(img => {
-                    if (img.src.includes('/imagens/')) {
-                        img.src = baseUrl + img.getAttribute('src');
-                    }
-                });
-            }
-        });
-    </script>
 
     <script src="scripts/script.js" defer></script>
     <script src="scripts/produtos.js" defer></script>
