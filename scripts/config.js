@@ -1,9 +1,10 @@
 // Configuração da API
 const API_CONFIG = {
-    // URL base da API - altera baseado no ambiente
-    baseURL: window.location.hostname.includes('github.io') 
-        ? 'https://projeto-lovepulseiras-api.onrender.com' // URL do Render em produção
-        : 'http://localhost:5000' // URL local para desenvolvimento
+    baseURL: 'https://projeto-lovepulseiras-api.onrender.com',
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    }
 };
 
 export default API_CONFIG; 
