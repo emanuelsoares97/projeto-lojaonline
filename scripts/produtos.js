@@ -25,22 +25,29 @@ async function carregarProdutos() {
 
 // Gestão do carrinho de compras
 function adicionarAoCarrinho(product) {
+  console.log('Tentando adicionar produto:', product);
   let cart = JSON.parse(localStorage.getItem("carrinho")) || [];
+  console.log('Carrinho atual:', cart);
   
   // Verificação de produto existente
   const existingProduct = cart.find(item => item.nome === product.name);
+  console.log('Produto existente?', existingProduct);
   
   if (existingProduct) {
     existingProduct.quantidade += 1;
+    console.log('Quantidade atualizada para:', existingProduct.quantidade);
   } else {
-    cart.push({
+    const newProduct = {
       nome: product.name,
       preco: parseFloat(product.price),
       imagem: product.image,
       quantidade: 1
-    });
+    };
+    console.log('Novo produto a ser adicionado:', newProduct);
+    cart.push(newProduct);
   }
   
+  console.log('Carrinho após adição:', cart);
   localStorage.setItem("carrinho", JSON.stringify(cart));
   mostrarNotificacao("Produto adicionado ao carrinho!");
 }
@@ -69,9 +76,11 @@ function mostrarNotificacao(mensagem) {
 
 // Renderização dos produtos na interface
 function renderizarProdutos(productList) {
+  console.log('Produtos a serem renderizados:', productList);
   const container = document.getElementById("produtos");
   
   productList.forEach(product => {
+    console.log('Renderizando produto:', product);
     const div = document.createElement("div");
     div.classList.add("produto");
     div.id = product.category;
@@ -100,9 +109,12 @@ function renderizarProdutos(productList) {
     
     // Gestão do evento de clique para adicionar ao carrinho
     botao.addEventListener("click", () => {
+      console.log('Botão clicado para o produto:', product.name);
+      const price = parseFloat(product.newPrice.replace("€", "").trim());
+      console.log('Preço convertido:', price);
       adicionarAoCarrinho({
         name: product.name,
-        price: parseFloat(product.newPrice.replace("€", "")),
+        price: price,
         image: product.image
       });
     });
