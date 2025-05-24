@@ -10,13 +10,13 @@ async function carregarProdutos() {
     
     // Ajusta os caminhos das imagens para o GitHub Pages
     if (isGitHubPages) {
-      data.produtos = data.produtos.map(produto => ({
-        ...produto,
-        imagem: baseUrl + produto.imagem
+      data.products = data.products.map(product => ({
+        ...product,
+        image: baseUrl + product.image
       }));
     }
     
-    return data.produtos;
+    return data.products;
   } catch (error) {
     console.error('Erro ao carregar produtos:', error);
     return [];
@@ -24,38 +24,38 @@ async function carregarProdutos() {
 }
 
 // Gestão do carrinho de compras
-function adicionarAoCarrinho(produto) {
-  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+function adicionarAoCarrinho(product) {
+  let cart = JSON.parse(localStorage.getItem("carrinho")) || [];
   
   // Verificação de produto existente
-  const produtoExistente = carrinho.find(item => item.nome === produto.nome);
+  const existingProduct = cart.find(item => item.name === product.name);
   
-  if (produtoExistente) {
-    produtoExistente.quantidade += 1;
+  if (existingProduct) {
+    existingProduct.quantity += 1;
   } else {
-    carrinho.push({
-      nome: produto.nome,
-      preco: parseFloat(produto.preco),
-      imagem: produto.imagem,
-      quantidade: 1
+    cart.push({
+      name: product.name,
+      price: parseFloat(product.price),
+      image: product.image,
+      quantity: 1
     });
   }
   
-  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  localStorage.setItem("carrinho", JSON.stringify(cart));
   mostrarNotificacao("Produto adicionado ao carrinho!");
 }
 
 // Função para mostrar notificação
 function mostrarNotificacao(mensagem) {
   // Verifica se já existe uma notificação e remove
-  const notificacaoExistente = document.querySelector('.notificacao');
+  const notificacaoExistente = document.querySelector('.notification');
   if (notificacaoExistente) {
     notificacaoExistente.remove();
   }
 
   // Cria o elemento de notificação
   const notificacao = document.createElement('div');
-  notificacao.classList.add('notificacao');
+  notificacao.classList.add('notification');
   notificacao.textContent = mensagem;
 
   // Adiciona ao corpo do documento
@@ -68,31 +68,31 @@ function mostrarNotificacao(mensagem) {
 }
 
 // Renderização dos produtos na interface
-function renderizarProdutos(listaProdutos) {
+function renderizarProdutos(productList) {
   const container = document.getElementById("produtos");
   
-  listaProdutos.forEach(produto => {
+  productList.forEach(product => {
     const div = document.createElement("div");
     div.classList.add("produto");
-    div.id = produto.categoria;
-    div.setAttribute("data-nome", produto.nome);
-    div.setAttribute("data-preco", produto.precoNovo.replace("€", "")); 
+    div.id = product.category;
+    div.setAttribute("data-nome", product.name);
+    div.setAttribute("data-preco", product.newPrice.replace("€", "")); 
   
     const img = document.createElement("img");
-    img.src = produto.imagem;
-    img.alt = produto.nome;
+    img.src = product.image;
+    img.alt = product.name;
   
     const descricao = document.createElement("p");
     descricao.classList.add("descricao");
-    descricao.textContent = produto.nome;
+    descricao.textContent = product.name;
   
     const precoAntigo = document.createElement("p");
     precoAntigo.classList.add("preco-antigo");
-    precoAntigo.textContent = produto.precoAntigo;
+    precoAntigo.textContent = product.oldPrice;
   
     const precoNovo = document.createElement("p");
     precoNovo.classList.add("preco-novo");
-    precoNovo.textContent = produto.precoNovo;
+    precoNovo.textContent = product.newPrice;
   
     const botao = document.createElement("button");
     botao.classList.add("add-carrinho");
@@ -101,9 +101,9 @@ function renderizarProdutos(listaProdutos) {
     // Gestão do evento de clique para adicionar ao carrinho
     botao.addEventListener("click", () => {
       adicionarAoCarrinho({
-        nome: produto.nome,
-        preco: parseFloat(produto.precoNovo.replace("€", "")),
-        imagem: produto.imagem
+        name: product.name,
+        price: parseFloat(product.newPrice.replace("€", "")),
+        image: product.image
       });
     });
   
@@ -120,8 +120,8 @@ function renderizarProdutos(listaProdutos) {
 
 // Inicializa a aplicação
 document.addEventListener('DOMContentLoaded', async () => {
-  const produtos = await carregarProdutos();
-  renderizarProdutos(produtos);
+  const products = await carregarProdutos();
+  renderizarProdutos(products);
 
   //funcao para aumentar a imagem quando clicada
   document.getElementById('produtos').addEventListener('click', function(e) {
@@ -143,26 +143,26 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // Gestão da visualização por categorias
-let categoriaAtiva = null;
+let activeCategory = null;
 
-function exibir_categoria(categoria) {
-    const elementos = document.getElementsByClassName('produto');
+function exibir_categoria(category) {
+    const elements = document.getElementsByClassName('produto');
 
-    if (categoria === categoriaAtiva) {
+    if (category === activeCategory) {
         // Exibição de todos os produtos ao clicar numa categoria já ativa
-        Array.from(elementos).forEach(elemento => {
-            elemento.style.display = "block";
+        Array.from(elements).forEach(element => {
+            element.style.display = "block";
         });
-        categoriaAtiva = null;
+        activeCategory = null;
     } else {
         // Filtragem dos produtos por categoria
-        categoriaAtiva = categoria;
+        activeCategory = category;
 
-        Array.from(elementos).forEach(elemento => {
-            if (categoria === elemento.id) {
-                elemento.style.display = "block";
+        Array.from(elements).forEach(element => {
+            if (category === element.id) {
+                element.style.display = "block";
             } else {
-                elemento.style.display = "none";
+                element.style.display = "none";
             }
         });
     }
