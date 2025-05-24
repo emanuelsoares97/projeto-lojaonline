@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        // Desabilitar o botão durante o envio
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+
         const formData = {
             name: document.getElementById('inome').value,
             email: document.getElementById('iemail').value,
@@ -33,6 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Erro:', error);
             alert('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.');
+        } finally {
+            // Reabilitar o botão após o envio (sucesso ou erro)
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
         }
     });
 }); 
