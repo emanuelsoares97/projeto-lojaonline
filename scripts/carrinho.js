@@ -1,6 +1,18 @@
 import API_CONFIG from './config.js';
+import { checkAuthState, requireAuth } from './authState.js';
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Verifica se o usuário está autenticado
+    if (!requireAuth()) {
+        // Salva a URL atual para retornar após o login
+        const currentPage = window.location.pathname;
+        window.location.href = `login.html?returnUrl=${currentPage}`;
+        return;
+    }
+
+    // Inicializa o estado de autenticação
+    checkAuthState();
+
     // Inicialização do carrinho a partir do localStorage
     let cart = JSON.parse(localStorage.getItem("carrinho")) || [];
     let cartList = document.getElementById("listaCarrinho");
@@ -59,8 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const user = localStorage.getItem("user");
         if (!user) {
-            alert("Por favor, faça login para finalizar a compra.");
-            window.location.href = "login.html";
+            const currentPage = window.location.pathname;
+            window.location.href = `login.html?returnUrl=${currentPage}`;
             return;
         }
 
@@ -80,14 +92,12 @@ document.addEventListener("DOMContentLoaded", () => {
             })),
             total: total,
             date: new Date().toISOString(),
-            login_name: user,  // Nome do usuário logado
-            customer: user,    // Mantendo compatibilidade
-            customer_email: "",  // Pode ser adicionado um campo no futuro
-            delivery_address: "",  // Pode ser adicionado um campo no futuro
-            phone: ""  // Pode ser adicionado um campo no futuro
+            login_name: user,
+            customer: user,
+            customer_email: "",
+            delivery_address: "",
+            phone: ""
         };
-
-        console.log('Dados do pedido:', orderData); // Debug dos dados
 
         try {
             // Envio da encomenda para o servidor
