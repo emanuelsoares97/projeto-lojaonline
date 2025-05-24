@@ -1,20 +1,48 @@
-import API_CONFIG from './config.js';
-import { checkAuthState, requireAuth } from './authState.js';
+// API Configuration
+const API_CONFIG = {
+    baseURL: window.location.hostname.includes('github.io')
+        ? 'https://projeto-lovepulseiras-api.onrender.com' // URL do Render em produção
+        : 'https://projeto-lovepulseiras-api.onrender.com', // Usando Render mesmo em desenvolvimento
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': window.location.origin
+    }
+};
 
-document.addEventListener("DOMContentLoaded", () => {
+// Função para verificar se o servidor está acessível
+async function checkServerAccess() {
+    try {
+        const response = await fetch(API_CONFIG.baseURL, {
+            method: 'OPTIONS',
+            headers: API_CONFIG.headers
+        });
+        return response.ok;
+    } catch (error) {
+        console.error('Erro ao verificar acesso ao servidor:', error);
+        return false;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
     // Verifica se o usuário está autenticado
-    if (!requireAuth()) {
+    const user = localStorage.getItem("user");
+    if (!user) {
         // Salva a URL atual para retornar após o login
         const currentPage = window.location.pathname;
         window.location.href = `login.html?returnUrl=${currentPage}`;
         return;
     }
 
-    // Inicializa o estado de autenticação
-    checkAuthState();
+    // Verifica acesso ao servidor
+    const serverAccessible = await checkServerAccess();
+    if (!serverAccessible) {
+        console.warn('Servidor não está acessível ou bloqueado por CORS');
+    }
 
     // Inicialização do carrinho a partir do localStorage
     let cart = JSON.parse(localStorage.getItem("carrinho")) || [];
+    console.log('Carrinho carregado:', cart); // Debug
     let cartList = document.getElementById("listaCarrinho");
     let totalElement = document.getElementById("total");
     let total = 0;
@@ -32,20 +60,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Renderiza cada item do carrinho
         cart.forEach((product, index) => {
+            console.log('Renderizando produto:', product); // Debug
             let item = document.createElement("li");
             item.innerHTML = `
                 <div class="item-carrinho">
-                    <img src="${product.imagem}" alt="${product.nome}" class="img-carrinho">
+                    <img src="${product.imagem || ''}" alt="${product.nome || ''}" class="img-carrinho">
                     <div>
-                        <p>${product.nome}</p>
-                        <p>Preço: ${product.preco}€</p>
-                        <p>Quantidade: ${product.quantidade}</p>
+                        <p>${product.nome || ''}</p>
+                        <p>Preço: ${product.preco ? product.preco.toFixed(2) : '0.00'}€</p>
+                        <p>Quantidade: ${product.quantidade || 1}</p>
                         <button class="remover" data-index="${index}">❌</button>
                     </div>
                 </div>
             `;
             cartList.appendChild(item);
-            total += product.preco * product.quantidade;
+
+            // Calcula o total usando parseFloat para garantir que é um número
+            const itemTotal = (parseFloat(product.preco) || 0) * (parseInt(product.quantidade) || 1);
+            total += itemTotal;
+            console.log('Total parcial após item:', total); // Debug
         });
 
         totalElement.textContent = total.toFixed(2);
@@ -66,6 +99,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("finalizarCompra").addEventListener("click", async () => {
         if (cart.length === 0) {
             alert("O carrinho está vazio!");
+            return;
+        }
+
+        // Verifica novamente o acesso ao servidor
+        const serverAccessible = await checkServerAccess();
+        if (!serverAccessible) {
+            alert("Não foi possível conectar ao servidor. O servidor pode estar inacessível ou bloqueando requisições do seu navegador (CORS).\n\nPor favor, tente novamente mais tarde.");
             return;
         }
 
@@ -99,38 +139,58 @@ document.addEventListener("DOMContentLoaded", () => {
             phone: ""
         };
 
+        console.log('Enviando pedido para:', `${API_CONFIG.baseURL}/api/orders`);
+        console.log('Headers:', API_CONFIG.headers);
+        console.log('Dados do pedido:', orderData);
+
         try {
             // Envio da encomenda para o servidor
             const response = await fetch(`${API_CONFIG.baseURL}/api/orders`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(orderData)
+                headers: API_CONFIG.headers,
+                body: JSON.stringify(orderData),
+                mode: 'cors',
+                credentials: 'same-origin'
             });
 
-            const data = await response.json();
+            console.log('Status da resposta:', response.status);
+            console.log('Headers da resposta:', Object.fromEntries(response.headers.entries()));
 
-            if (response.ok) {
-                alert("Encomenda realizada com sucesso! Em breve receberá um email com os detalhes.");
-                localStorage.removeItem("carrinho");
-                updateCart();
-                window.location.href = "index.html";
-            } else {
-                throw new Error(data.message || 'Erro ao processar a encomenda');
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('Resposta de erro do servidor:', errorText);
+                throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
             }
+
+            const data = await response.json();
+            console.log('Dados da resposta:', data);
+
+            alert("Encomenda realizada com sucesso! Em breve receberá um email com os detalhes.");
+            localStorage.removeItem("carrinho");
+            updateCart();
+            window.location.href = "index.html";
         } catch (error) {
-            console.error('Erro:', error);
-            alert("Ocorreu um erro ao processar sua encomenda. Por favor, tente novamente.");
+            console.error('Erro detalhado:', error);
+            let errorMessage = "Ocorreu um erro ao processar sua encomenda.";
+            
+            if (error.message.includes('Failed to fetch')) {
+                errorMessage += "\n\nDetalhes do erro:";
+                errorMessage += "\n- Servidor: " + API_CONFIG.baseURL;
+                errorMessage += "\n- Origem: " + window.location.origin;
+                errorMessage += "\n\nPossíveis causas:";
+                errorMessage += "\n1. O servidor está offline";
+                errorMessage += "\n2. Bloqueio de CORS (o servidor não está configurado para aceitar requisições do seu navegador)";
+                errorMessage += "\n3. Problemas de rede";
+                errorMessage += "\n\nPor favor, tente novamente mais tarde ou contate o suporte.";
+            } else {
+                errorMessage += "\nErro: " + error.message;
+            }
+            
+            alert(errorMessage);
         } finally {
             // Restauração do estado original do botão
             checkoutBtn.textContent = originalText;
             checkoutBtn.disabled = false;
         }
-    });
-
-    document.getElementById("logout").addEventListener("click", () => {
-        localStorage.removeItem("user");
-        window.location.href = "login.html";
     });
 });
