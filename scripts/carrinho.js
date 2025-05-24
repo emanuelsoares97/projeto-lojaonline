@@ -125,17 +125,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         const orderData = {
             items: cart.map(item => ({
                 name: item.nome,
-                quantity: item.quantidade,
-                price: item.preco,
+                quantity: parseInt(item.quantidade) || 1,
+                price: parseFloat(item.preco) || 0,
+                total_item: (parseFloat(item.preco) || 0) * (parseInt(item.quantidade) || 1),
                 image: item.imagem
             })),
             total: total,
             date: new Date().toISOString(),
-            login_name: user,
+            client: user,
             customer: user,
-            customer_email: "",
-            delivery_address: "",
-            phone: ""
+            customer_email: "cliente@example.com",  // Email temporário
+            login_name: user,
+            delivery_address: "Endereço a definir",
+            phone: "Telefone a definir"
         };
 
         console.log('Enviando pedido para:', `${API_CONFIG.baseURL}/api/orders`);
