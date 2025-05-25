@@ -58,20 +58,6 @@
         </div>
     </footer>
 
-    <script>
-        // Ajusta os caminhos das imagens para o GitHub Pages
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.location.hostname.includes('github.io')) {
-                const baseUrl = '/projeto-recordeportugallojaeletro';
-                document.querySelectorAll('img').forEach(img => {
-                    if (img.src.includes('/imagens/')) {
-                        img.src = baseUrl + img.getAttribute('src');
-                    }
-                });
-            }
-        });
-    </script>
-
     <script src="scripts/auth.js"></script>
 </body>
 </html>
